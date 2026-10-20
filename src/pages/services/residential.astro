@@ -1,0 +1,167 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CallToAction from '../../components/CallToAction.astro';
+import FaqAccordion from '../../components/FaqAccordion.astro';
+---
+
+<Layout 
+  title="Residential Permanent Holiday Lights | Seattle & Puget Sound"
+  description="Custom-fitted permanent LED lighting for homes across Seattle, Mill Creek, Marysville, and Bellevue. Color-matched aluminum tracks, phone app control, and IP68 waterproof ratings."
+>
+  <!-- Page Hero -->
+  <section class="relative min-h-[480px] flex items-center justify-center overflow-hidden bg-[#001f35] py-20">
+    <div class="absolute inset-0 z-0">
+      <img 
+        src="/images/IMG_2859.jpg" 
+        alt="Residential permanent holiday lighting" 
+        class="w-full h-full object-cover filter brightness-[0.4] contrast-[1.1]"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-[#001f35]/90 via-[#001f35]/40 to-[#001f35]/90"></div>
+    </div>
+
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#cc181e] text-white text-xs font-['Montserrat',sans-serif] font-black uppercase tracking-wider">
+        Residential Installations
+      </div>
+      <h1 class="font-['Montserrat',sans-serif] font-black text-3xl sm:text-5xl lg:text-6xl text-white uppercase tracking-tight leading-tight">
+        Residential Permanent<br class="hidden sm:block" /> Holiday & Roofline Lights
+      </h1>
+      <p class="text-slate-100 text-sm sm:text-lg max-w-2xl mx-auto font-medium leading-relaxed drop-shadow">
+        Custom aluminum tracks powder-coated to match your home's trim. Invisible by day, brilliantly lit by night, and controlled directly from your smartphone.
+      </p>
+
+      <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <button 
+          type="button" 
+          data-open-quote-modal 
+          class="btn-fast-quote text-sm sm:text-base px-8 py-3.5"
+        >
+          Get A Fast Quote
+        </button>
+        <a 
+          href="tel:4255996702" 
+          class="px-6 py-3.5 rounded bg-white/10 hover:bg-white/20 text-white font-['Montserrat',sans-serif] font-bold text-xs uppercase tracking-wider backdrop-blur-sm transition-colors border border-white/20"
+        >
+          Call (425) 599-6702
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Grounded, Natural Engineering Section -->
+  <section class="py-20 bg-[#f9f6f7] border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left: Natural Copy & Practical Details -->
+        <div class="lg:col-span-6 space-y-6">
+          <div class="space-y-2">
+            <span class="text-xs uppercase font-['Montserrat',sans-serif] font-black tracking-widest text-[#cc181e] block">
+              Built For Western Washington
+            </span>
+            <h2 class="font-['Montserrat',sans-serif] font-black text-2xl sm:text-4xl text-[#002b47] uppercase tracking-tight leading-tight">
+              Built For Puget Sound Rain, Wind & Freezing Winters
+            </h2>
+          </div>
+          
+          <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
+            Seasonal clip-on light strands wear down quickly in continuous Pacific Northwest rains. We secure heavy-gauge aluminum track channels directly beneath your home’s eaves, fascia, and soffits. Every diode and connection is sealed to IP68 waterproof standards, protecting the wiring from roof runoff, windstorms, and winter freezes.
+          </p>
+
+          <!-- Authentic feature cards (Natural, Human, Flat Monochromatic icons) -->
+          <div class="space-y-3.5 pt-2">
+            
+            <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm border-l-4 border-l-[#002b47]">
+              <h3 class="font-['Montserrat',sans-serif] font-black text-sm uppercase text-[#002b47] mb-1">
+                Custom Color-Matched Channels
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                We powder-coat the tracks to match your home's exact fascia or trim paint. When turned off during the day, the channel blends in and remains virtually invisible from the curb.
+              </p>
+            </div>
+
+            <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm border-l-4 border-l-[#cc181e]">
+              <h3 class="font-['Montserrat',sans-serif] font-black text-sm uppercase text-[#002b47] mb-1">
+                Phone App Control For Every Season
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Use warm architectural white for everyday accent lighting, or switch to custom holiday colors, Seahawks game day navy-and-green, or animated holiday light shows with a tap.
+              </p>
+            </div>
+
+            <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm border-l-4 border-l-emerald-600">
+              <h3 class="font-['Montserrat',sans-serif] font-black text-sm uppercase text-[#002b47] mb-1">
+                Permanent Install — No More Ladders
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Installed once by our licensed and insured crew. You avoid tangled storage boxes, burnt bulbs, and climbing slippery extension ladders every November and January.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="pt-2">
+            <button 
+              type="button" 
+              data-open-quote-modal 
+              class="btn-fast-quote text-xs py-3 px-6"
+            >
+              Get A Fast Quote For Your Home
+            </button>
+          </div>
+        </div>
+
+        <!-- Right: Real Job-Site Photos (No Fake Dark Tech Frames) -->
+        <div class="lg:col-span-6 space-y-4">
+          <!-- Main completed house at night -->
+          <div class="bg-white p-2 rounded-lg border border-slate-200 shadow-lg overflow-hidden group">
+            <div class="relative overflow-hidden rounded">
+              <img 
+                src="/images/IMG_0238.jpg" 
+                alt="Two-story Seattle craftsman home with permanent holiday roofline lighting" 
+                class="w-full h-80 object-cover object-center group-hover:scale-102 transition-transform duration-300"
+              />
+              <span class="absolute bottom-3 left-3 bg-[#002b47]/90 backdrop-blur-sm text-white text-[11px] font-['Montserrat',sans-serif] font-bold px-3 py-1 rounded">
+                Completed Two-Story Craftsman Installation
+              </span>
+            </div>
+          </div>
+
+          <!-- 2 supporting real install photos -->
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-white p-2 rounded-lg border border-slate-200 shadow-md overflow-hidden">
+              <div class="relative overflow-hidden rounded">
+                <img 
+                  src="/images/IMG_1044.jpg" 
+                  alt="Full perimeter roofline lighting at night" 
+                  class="w-full h-44 object-cover"
+                />
+                <span class="absolute bottom-2 left-2 bg-[#002b47]/90 text-white text-[10px] font-['Montserrat',sans-serif] font-bold px-2 py-0.5 rounded">
+                  Full Roofline Perimeter
+                </span>
+              </div>
+            </div>
+
+            <div class="bg-white p-2 rounded-lg border border-slate-200 shadow-md overflow-hidden">
+              <div class="relative overflow-hidden rounded">
+                <img 
+                  src="/images/IMG_8159.jpg" 
+                  alt="Installation crew fitting permanent channels onto high roof peak" 
+                  class="w-full h-44 object-cover" 
+                />
+                <span class="absolute bottom-2 left-2 bg-[#002b47]/90 text-white text-[10px] font-['Montserrat',sans-serif] font-bold px-2 py-0.5 rounded">
+                  Our Professional Crew on Site
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <FaqAccordion />
+  <CallToAction />
+</Layout>

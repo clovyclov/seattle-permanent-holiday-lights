@@ -1,0 +1,44 @@
+---
+// Hero.astro - Exactly matching Section 1 in the reference screenshot
+---
+
+<section class="relative min-h-[540px] lg:min-h-[620px] flex items-center justify-center overflow-hidden bg-[#001f35] py-16 sm:py-20">
+  <!-- Night House Background with Starry Overlay -->
+  <div class="absolute inset-0 z-0">
+    <img 
+      src="/images/IMG_8159.jpg" 
+      alt="Permanent Holiday Lighting installation on house at night" 
+      class="w-full h-full object-cover object-center filter brightness-[0.42] contrast-[1.1]"
+      loading="eager"
+    />
+    <!-- Dark Vignette Overlay -->
+    <div class="absolute inset-0 bg-gradient-to-b from-[#001f35]/85 via-[#001f35]/40 to-[#001f35]/85"></div>
+  </div>
+
+  <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+    
+    <!-- Big 3-Line Stacked Headline matching screenshot -->
+    <h1 class="font-['Montserrat',sans-serif] font-black text-5xl sm:text-7xl lg:text-8xl tracking-tight text-white uppercase leading-[0.95] drop-shadow-md">
+      Permanent<br />
+      Holiday Light<br />
+      Services
+    </h1>
+
+    <!-- Centered Subtitle -->
+    <p class="text-sm sm:text-lg lg:text-xl text-slate-100 max-w-2xl mx-auto font-medium drop-shadow leading-relaxed">
+      The premier residential & commercial holiday lighting installation service in the Greater Seattle area.
+    </p>
+
+    <!-- Centered Red Action Button -->
+    <div class="pt-4">
+      <button 
+        type="button" 
+        data-open-quote-modal 
+        class="btn-fast-quote text-sm sm:text-base px-8 sm:px-10 py-3.5 sm:py-4 tracking-wider"
+      >
+        Get A Fast Quote
+      </button>
+    </div>
+
+  </div>
+</section>

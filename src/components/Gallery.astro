@@ -1,0 +1,95 @@
+---
+// Gallery.astro - Section 4 matching "MAKE YOUR HOME THE TALK OF THE NEIGHBORHOOD"
+const images = [
+  { src: "/images/IMG_8159.jpg", title: "Seattle Permanent Roofline" },
+  { src: "/images/IMG_2859.jpg", title: "Two-Story Craftsman Lighting" },
+  { src: "/images/IMG_0238.jpg", title: "Warm White Roofline & Gables" },
+  { src: "/images/IMG_1044.jpg", title: "Architectural Eave Illumination" },
+  { src: "/images/IMG_1231.jpg", title: "Patio & Covered Deck Lighting" },
+  { src: "/images/IMG_2731.jpg", title: "Suburban Residence Holiday Glow" },
+  { src: "/images/IMG_7138.jpg", title: "Grand Portico & Peak Highlights" },
+  { src: "/images/IMG_1043.jpg", title: "Trim-Matched Channel Installation" },
+  { src: "/images/IMG_2753.jpg", title: "Front Entryway Lighting" },
+  { src: "/images/IMG_0235.jpg", title: "Modern Architecture Downlight" },
+  { src: "/images/IMG_1225.jpg", title: "Two-Story Warm Glow" },
+  { src: "/images/IMG_1045.jpg", title: "Commercial Storefront Accent" }
+];
+---
+
+<section id="gallery" class="py-20 sm:py-24 bg-white text-slate-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header matching screenshot -->
+    <div class="text-center max-w-3xl mx-auto mb-12 space-y-2">
+      <span class="font-['Montserrat',sans-serif] text-xs font-black tracking-wider uppercase text-[#0170b9] block">
+        We'll Make Your Property Stand Out
+      </span>
+      <h2 class="font-['Montserrat',sans-serif] font-black text-3xl sm:text-4xl lg:text-5xl text-[#002b47] uppercase tracking-tight">
+        Make <span class="text-[#cc181e]">Your Home</span> the Talk of the Neighborhood
+      </h2>
+    </div>
+
+    <!-- 4x3 Grid (12 photos) matching screenshot -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+      {images.map((item, idx) => (
+        <div 
+          class="gallery-tile group relative aspect-[4/3] rounded overflow-hidden bg-slate-900 shadow cursor-pointer border border-slate-200"
+          data-src={item.src}
+          data-title={item.title}
+        >
+          <img 
+            src={item.src} 
+            alt={item.title} 
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            loading="lazy"
+          />
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<!-- Image Lightbox Modal -->
+<div id="img-lightbox" class="fixed inset-0 z-50 bg-black/90 hidden items-center justify-center p-4">
+  <div class="relative max-w-4xl w-full flex flex-col items-center">
+    <button 
+      type="button" 
+      id="lightbox-close-btn" 
+      class="self-end mb-2 p-2 text-white hover:text-red-400 focus:outline-none"
+    >
+      <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+    <img id="lightbox-target" src="" alt="" class="max-h-[85vh] max-w-full rounded shadow-2xl object-contain" />
+  </div>
+</div>
+
+<script>
+  const tiles = document.querySelectorAll('.gallery-tile');
+  const lb = document.getElementById('img-lightbox');
+  const lbImg = document.getElementById('lightbox-target') as HTMLImageElement;
+  const lbClose = document.getElementById('lightbox-close-btn');
+
+  if (lb && lbImg && lbClose) {
+    tiles.forEach(tile => {
+      tile.addEventListener('click', () => {
+        const src = tile.getAttribute('data-src') || '';
+        lbImg.src = src;
+        lb.classList.remove('hidden');
+        lb.classList.add('flex');
+      });
+    });
+
+    const closeLightbox = () => {
+      lb.classList.add('hidden');
+      lb.classList.remove('flex');
+    };
+
+    lbClose.addEventListener('click', closeLightbox);
+    lb.addEventListener('click', (e) => {
+      if (e.target === lb) closeLightbox();
+    });
+  }
+</script>

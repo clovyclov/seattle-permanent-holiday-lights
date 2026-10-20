@@ -1,0 +1,106 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CallToAction from '../components/CallToAction.astro';
+
+const posts = [
+  {
+    title: "How Permanent Lighting Channels Handle Pacific Northwest Rain and Freezes",
+    slug: "pnw-weather-proof-permanent-lights",
+    date: "October 12, 2025",
+    readTime: "4 min read",
+    summary: "Seattle averages over 150 rainy days a year. Here is how color-matched aluminum tracks and IP68-rated waterproof LED diodes prevent moisture intrusion along roof eaves and soffits.",
+    category: "Technical & Weatherproofing",
+    image: "/images/IMG_1044.jpg"
+  },
+  {
+    title: "Smartphone App Setup: Scheduling Colors, Scenes, and Timers",
+    slug: "app-controls-scenes-scheduling",
+    date: "November 3, 2025",
+    readTime: "5 min read",
+    summary: "From classic warm white architectural lighting during weeknights to Seahawks game day navy-and-action-green, here is how the mobile app controls individual diode addresses and automation schedules.",
+    category: "Guides & Features",
+    image: "/images/IMG_0238.jpg"
+  },
+  {
+    title: "Ladder Safety: Why Homeowners Are Moving Away From Annual Seasonal Hanging",
+    slug: "ladder-safety-permanent-lights",
+    date: "December 1, 2025",
+    readTime: "3 min read",
+    summary: "According to the Consumer Product Safety Commission, thousands of injuries occur each holiday season from ladder slips. A one-time professional install eliminates yearly climbing for good.",
+    category: "Safety & Maintenance",
+    image: "/images/IMG_1231.jpg"
+  }
+];
+---
+
+<Layout 
+  title="Lighting Advice & Articles | Seattle Permanent Holiday Lights"
+  description="Guides, tips, and insights on permanent holiday lighting, waterproof installations, energy savings, and smartphone app setup in Greater Seattle."
+>
+  <section class="py-16 bg-[#001f35] border-b border-[#002b47] text-center text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#cc181e] text-white text-xs font-['Montserrat',sans-serif] font-black uppercase tracking-wider">
+        Resource Center
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-['Montserrat',sans-serif] font-black text-white uppercase tracking-tight">
+        Seattle Lighting Blog
+      </h1>
+      <p class="text-slate-200 text-base sm:text-lg max-w-2xl mx-auto font-medium">
+        Practical articles on permanent exterior lights, roofline track engineering, and outdoor illumination in the Pacific Northwest.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-[#f9f6f7]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {posts.map((post) => (
+          <article class="bg-white rounded-lg border border-slate-200 shadow-md overflow-hidden flex flex-col transition-all hover:shadow-xl hover:-translate-y-1">
+            <div class="relative h-48 overflow-hidden bg-slate-900">
+              <img 
+                src={post.image} 
+                alt={post.title} 
+                class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                loading="lazy"
+              />
+              <span class="absolute top-3 left-3 bg-[#002b47] text-white text-[11px] font-['Montserrat',sans-serif] font-black uppercase tracking-wider px-2.5 py-1 rounded shadow">
+                {post.category}
+              </span>
+            </div>
+
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div class="space-y-2">
+                <div class="text-xs text-slate-500 font-semibold flex items-center gap-2">
+                  <span>{post.date}</span>
+                  <span>•</span>
+                  <span>{post.readTime}</span>
+                </div>
+                <h2 class="font-['Montserrat',sans-serif] font-black text-lg text-[#002b47] leading-snug hover:text-[#cc181e] transition-colors">
+                  {post.title}
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  {post.summary}
+                </p>
+              </div>
+
+              <div class="pt-2">
+                <button 
+                  type="button" 
+                  data-open-quote-modal 
+                  class="text-xs font-['Montserrat',sans-serif] font-black text-[#cc181e] uppercase tracking-wider hover:underline flex items-center gap-1"
+                >
+                  <span>Request an Estimate</span>
+                  <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CallToAction />
+</Layout>

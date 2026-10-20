@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <style>
+    body { margin: 0; padding: 20px; font-family: sans-serif; background: #f8fafc; }
+    .box { width: 680px; height: 480px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); border: 1px solid #cbd5e1; }
+    #leaflet-map { width: 100%; height: 100%; }
+  </style>
+</head>
+<body>
+  <h2>Snohomish County Native Map</h2>
+  <div class="box">
+    <div id="leaflet-map"></div>
+  </div>
+
+  <script>
+    const map = L.map('leaflet-map', { 
+      scrollWheelZoom: false,
+      zoomControl: true 
+    }).setView([48.00, -122.10], 10);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Key Snohomish County service hubs
+    const cities = [
+      { name: "Everett", lat: 47.9789, lng: -122.2021 },
+      { name: "Marysville", lat: 48.0518, lng: -122.1771 },
+      { name: "Mill Creek", lat: 47.8598, lng: -122.2065 },
+      { name: "Lynnwood", lat: 47.8209, lng: -122.3151 },
+      { name: "Edmonds", lat: 47.8107, lng: -122.3774 },
+      { name: "Bothell", lat: 47.7601, lng: -122.2054 },
+      { name: "Arlington", lat: 48.1987, lng: -122.1238 },
+      { name: "Lake Stevens", lat: 48.0151, lng: -122.0637 },
+      { name: "Snohomish", lat: 47.9129, lng: -122.0982 },
+      { name: "Monroe", lat: 47.8557, lng: -121.9698 },
+      { name: "Stanwood", lat: 48.2415, lng: -122.3707 }
+    ];
+
+    cities.forEach(c => {
+      const pinHtml = `
+        <div style="position: relative; display: flex; align-items: center; justify-content: center;">
+          <div style="background-color: #cc181e; width: 14px; height: 14px; border-radius: 50%; border: 2.5px solid #ffffff; box-shadow: 0 2px 5px rgba(0,0,0,0.4);"></div>
+        </div>
+      `;
+      const icon = L.divIcon({
+        className: 'custom-pin',
+        html: pinHtml,
+        iconSize: [14, 14],
+        iconAnchor: [7, 7]
+      });
+      L.marker([c.lat, c.lng], { icon: icon })
+        .addTo(map)
+        .bindTooltip(`<span style="font-family: Montserrat, sans-serif; font-weight: 800; font-size: 11px; text-transform: uppercase; color: #002b47;">${c.name}</span>`, { 
+          permanent: true, 
+          direction: 'top',
+          offset: [0, -6],
+          className: 'city-label'
+        });
+    });
+  </script>
+</body>
+</html>

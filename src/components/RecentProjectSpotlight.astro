@@ -1,0 +1,64 @@
+---
+// RecentProjectSpotlight.astro - Section 2 from reference screenshot
+---
+
+<section class="py-20 sm:py-24 bg-white relative">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Floating Card Container -->
+    <div class="relative bg-white rounded-lg border border-slate-200 shadow-xl overflow-visible">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-6 sm:p-10">
+        
+        <!-- Left: Image of Illuminated House / Entryway -->
+        <div class="lg:col-span-6">
+          <div class="rounded overflow-hidden shadow-md">
+            <img 
+              src="/images/IMG_2859.jpg" 
+              alt="Holiday light installations completed in Seattle" 
+              class="w-full h-80 sm:h-96 object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <!-- Right: Text Content & Red Button -->
+        <div class="lg:col-span-6 space-y-4">
+          <span class="font-['Montserrat',sans-serif] text-xs font-black tracking-wider uppercase text-[#0170b9] block">
+            The Best Holiday Light Installation Service in Seattle
+          </span>
+
+          <h2 class="font-['Montserrat',sans-serif] font-black text-2xl sm:text-3xl lg:text-4xl text-[#002b47] uppercase leading-tight tracking-tight">
+            Check Out Some of the Holiday Light Installations We Completed in the Seattle Area Last <span class="text-[#cc181e]">Holiday Season!</span>
+          </h2>
+
+          <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+            Our permanent exterior lights blend into your home's roofline during the day and shine brightly at night. Enjoy customizable, energy-efficient lighting solutions professionally installed to enhance your home's architectural beauty without the yearly hassle of seasonal setups and takedowns.
+          </p>
+
+          <div class="pt-2">
+            <button 
+              type="button" 
+              data-open-quote-modal 
+              class="btn-fast-quote text-xs sm:text-sm px-7 py-3.5 tracking-wider"
+            >
+              Get A Fast Quote
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Festive Pine Garland Decoration Hanging Beneath Card -->
+      <div class="absolute -bottom-8 inset-x-0 w-full overflow-hidden pointer-events-none flex justify-center">
+        <img 
+          src="/images/pine-garland.svg" 
+          alt="Festive pine garland" 
+          class="w-full max-w-4xl h-12 object-contain"
+        />
+      </div>
+
+    </div>
+
+  </div>
+</section>

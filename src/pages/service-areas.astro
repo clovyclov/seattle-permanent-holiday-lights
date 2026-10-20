@@ -1,0 +1,146 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ServiceAreas from '../components/ServiceAreas.astro';
+import CallToAction from '../components/CallToAction.astro';
+
+const cities = [
+  {
+    id: "seattle",
+    name: "Seattle",
+    county: "King County",
+    description: "Full service permanent lighting across Seattle neighborhoods including Ballard, Magnolia, Queen Anne, Capitol Hill, West Seattle, and Laurelhurst.",
+    features: ["Single & Multi-Story Homes", "Steep Craftsman Gables", "HOA Compliant Channels"]
+  },
+  {
+    id: "mill-creek",
+    name: "Mill Creek",
+    county: "Snohomish County",
+    description: "Serving Mill Creek residential communities, Mill Creek Town Center area, and surrounding golf course properties with clean, hidden soffit installations.",
+    features: ["Custom Color-Matched Tracks", "App Scheduling", "Zero Ladder Climbing"]
+  },
+  {
+    id: "marysville",
+    name: "Marysville",
+    county: "Snohomish County",
+    description: "Dependable exterior holiday lighting installations for Marysville homes, new builds, and commercial business storefronts along State Ave and Smokey Point.",
+    features: ["Commercial Grade IP68 LEDs", "Architectural Warm White", "Rain & Freeze Tough"]
+  },
+  {
+    id: "bothell",
+    name: "Bothell",
+    county: "King / Snohomish County",
+    description: "Custom roofline and deck lighting installations throughout Northshore Bothell, Canyon Park, and Maywood Hills.",
+    features: ["Soffit & Fascia Integration", "Smartphone Sync", "50,000+ Hour Lifespan"]
+  },
+  {
+    id: "woodinville",
+    name: "Woodinville",
+    county: "King County",
+    description: "High-end permanent roofline, estate, and bistro illumination for Woodinville wine country residences, acreage properties, and outdoor patios.",
+    features: ["Estate & Acreage Coverage", "Pergola & Patio Lighting", "Year-Round Accent Modes"]
+  },
+  {
+    id: "arlington",
+    name: "Arlington",
+    county: "Snohomish County",
+    description: "Permanent holiday lighting for Arlington residences and rural properties, designed to withstand windy foothill winters without sag or clip failures.",
+    features: ["Heavy Duty Aluminum Track", "Concealed Wiring", "Vibrant Holiday Presets"]
+  },
+  {
+    id: "mount-vernon",
+    name: "Mount Vernon",
+    county: "Skagit County",
+    description: "Extending professional permanent installation services north into Mount Vernon and Skagit Valley communities.",
+    features: ["Precision Laser-Measured Fits", "Commercial & Residential", "Lifetime App Access"]
+  },
+  {
+    id: "bellingham",
+    name: "Bellingham",
+    county: "Whatcom County",
+    description: "Serving Whatcom County homeowners in Bellingham, Fairhaven, and Lake Whatcom with premium waterproof architectural lighting systems.",
+    features: ["Pacific Northwest Weatherproof", "Multi-Zone Control", "Fast Professional Install"]
+  }
+];
+---
+
+<Layout 
+  title="Service Areas | Seattle Permanent Holiday Lights"
+  description="Discover our permanent holiday lighting installation coverage across King, Snohomish, Skagit, and Whatcom counties including Seattle, Mill Creek, Marysville, Bothell, Woodinville, Arlington, Mount Vernon, and Bellingham."
+>
+  <!-- Hero Banner -->
+  <section class="py-16 bg-[#001f35] border-b border-[#002b47] text-center text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#cc181e] text-white text-xs font-['Montserrat',sans-serif] font-black uppercase tracking-wider">
+        Washington Coverage
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-['Montserrat',sans-serif] font-black text-white uppercase tracking-tight">
+        Our Service Areas
+      </h1>
+      <p class="text-slate-200 text-base sm:text-lg max-w-2xl mx-auto font-medium">
+        Professional permanent roofline and holiday lighting installation crews serving homeowners and businesses throughout Greater Seattle and Western Washington.
+      </p>
+    </div>
+  </section>
+
+  <!-- Interactive Map Section -->
+  <ServiceAreas />
+
+  <!-- City Grid with matching Dropdown Anchor IDs -->
+  <section class="py-20 bg-[#f9f6f7]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <h2 class="font-['Montserrat',sans-serif] font-black text-2xl sm:text-3xl text-[#002b47] uppercase tracking-tight">
+          Communities We Serve
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-2">
+          Click any location below or select from the navigation menu above to review local installation details.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {cities.map((city) => (
+          <div 
+            id={city.id}
+            class="bg-white rounded-lg border border-slate-200 p-6 shadow-md hover:shadow-lg transition-all scroll-mt-28 flex flex-col justify-between"
+          >
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-[#cc181e] uppercase tracking-wider">{city.county}</span>
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              </div>
+              <h3 class="font-['Montserrat',sans-serif] font-black text-xl text-[#002b47] uppercase">
+                {city.name}
+              </h3>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                {city.description}
+              </p>
+              
+              <ul class="pt-2 space-y-1.5 border-t border-slate-100">
+                {city.features.map((f) => (
+                  <li class="flex items-center gap-2 text-xs font-medium text-slate-700">
+                    <svg class="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{f}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="pt-6">
+              <button 
+                type="button" 
+                data-open-quote-modal 
+                class="w-full btn-fast-quote text-xs py-2 text-center"
+              >
+                Quote in {city.name}
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CallToAction />
+</Layout>

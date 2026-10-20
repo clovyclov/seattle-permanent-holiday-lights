@@ -1,0 +1,89 @@
+---
+// FaqAccordion.astro - Section 8 from reference screenshot
+const faqs = [
+  {
+    q: "How Many Years Have You Been Designing & Installing Holiday Lights?",
+    a: "We have over 5 years of dedicated experience designing and installing permanent exterior holiday and architectural lighting systems across King and Snohomish counties."
+  },
+  {
+    q: "Is Seattle Permanent Holiday Lights Licensed & Insured?",
+    a: "Yes. We are 100% licensed, bonded, and fully insured for residential and commercial exterior installations, protecting your property with complete peace of mind."
+  },
+  {
+    q: "Do I Own The Lights?",
+    a: "Yes! Unlike seasonal rental light companies that charge you every single winter to hang and remove lights, with our permanent system, you own the system 100% forever."
+  },
+  {
+    q: "Can You See The Lights During The Day?",
+    a: "No. Our lights are mounted inside low-profile aluminum tracks powder-coated to match your fascia or soffit trim. From the street during the day, the system is virtually undetectable."
+  },
+  {
+    q: "How Do The Lights Hold Up In Seattle Rain & Freezes?",
+    a: "Our lighting systems carry an IP68 waterproof rating. They are hermetically sealed against Pacific Northwest torrential rains, freezing moisture, ice, and windstorms."
+  },
+  {
+    q: "Is There A Fee For An Estimate Or Quote?",
+    a: "No. Seattle Permanent Holiday Lights provides 100% free, no-obligation estimates. We can calculate linear footage virtually or visit your home in person."
+  }
+];
+---
+
+<section id="faq" class="py-20 sm:py-24 bg-white text-slate-800">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Headline matching screenshot -->
+    <div class="text-center mb-12">
+      <h2 class="font-['Montserrat',sans-serif] font-black text-2xl sm:text-3xl lg:text-4xl text-[#002b47] uppercase tracking-tight">
+        Frequently Asked Seattle Lighting Questions
+      </h2>
+    </div>
+
+    <!-- Accordion Items matching screenshot -->
+    <div class="space-y-3" id="faq-list">
+      {faqs.map((faq, idx) => (
+        <div class="faq-row border border-slate-200 rounded shadow-sm overflow-hidden bg-white">
+          <button 
+            type="button" 
+            class="faq-btn w-full p-4 text-left flex items-center gap-3 font-['Montserrat',sans-serif] font-bold text-sm sm:text-base text-[#002b47] hover:text-[#cc181e] transition-colors focus:outline-none"
+            aria-expanded={idx === 0 ? "true" : "false"}
+          >
+            <span class="w-6 h-6 rounded bg-[#cc181e] text-white flex items-center justify-center font-bold text-xs shrink-0">
+              ?
+            </span>
+            <span class="flex-1">{faq.q}</span>
+            <span class="faq-arrow text-slate-400 font-bold transition-transform">
+              {idx === 0 ? "−" : "+"}
+            </span>
+          </button>
+
+          <div class={`faq-body px-4 pb-4 pl-13 text-xs sm:text-sm text-slate-600 leading-relaxed ${idx === 0 ? 'block' : 'hidden'}`}>
+            <p>{faq.a}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const btns = document.querySelectorAll('.faq-btn');
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+      const row = btn.closest('.faq-row');
+      const body = row?.querySelector('.faq-body');
+      const arrow = row?.querySelector('.faq-arrow');
+
+      if (isExpanded) {
+        btn.setAttribute('aria-expanded', 'false');
+        body?.classList.add('hidden');
+        if (arrow) arrow.textContent = '+';
+      } else {
+        btn.setAttribute('aria-expanded', 'true');
+        body?.classList.remove('hidden');
+        if (arrow) arrow.textContent = '−';
+      }
+    });
+  });
+</script>

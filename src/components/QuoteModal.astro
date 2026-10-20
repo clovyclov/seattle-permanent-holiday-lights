@@ -1,0 +1,293 @@
+---
+// QuoteModal.astro - Authentic local contractor quote modal
+---
+
+<dialog 
+  id="quote-modal-dialog" 
+  class="fixed inset-0 z-50 bg-transparent p-4 sm:p-6 backdrop:bg-slate-950/75 backdrop:backdrop-blur-sm m-auto max-w-xl w-full"
+>
+  <div class="relative bg-white rounded-xl shadow-2xl overflow-hidden border border-slate-200">
+    
+    <!-- Top Navy Brand Bar -->
+    <div class="bg-[#002b47] px-6 py-5 text-white flex items-center justify-between border-b-4 border-[#cc181e]">
+      <div class="flex items-center gap-3">
+        <img 
+          src="/images/logo.png" 
+          alt="Seattle Permanent Holiday Lights" 
+          class="h-10 w-auto object-contain"
+        />
+        <div>
+          <h3 class="font-['Montserrat',sans-serif] font-black text-lg uppercase tracking-tight text-white leading-tight">
+            Get A Fast Quote
+          </h3>
+          <p class="text-xs text-slate-200 font-medium">
+            Greater Seattle & Puget Sound Installation
+          </p>
+        </div>
+      </div>
+
+      <!-- Close Button -->
+      <button 
+        type="button" 
+        id="close-quote-modal-btn" 
+        class="text-slate-300 hover:text-white p-1 rounded-lg hover:bg-white/10 transition-colors focus:outline-none cursor-pointer"
+        aria-label="Close modal"
+      >
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Intake Form Body -->
+    <div class="p-6 sm:p-7">
+      <div class="mb-5 bg-amber-50 border border-amber-200 rounded-md p-3 flex items-center justify-between">
+        <div class="text-xs text-amber-900 font-medium">
+          Need an immediate answer? Call our estimator directly:
+        </div>
+        <a href="tel:4255996702" class="text-xs font-['Montserrat',sans-serif] font-black text-[#cc181e] hover:underline flex items-center gap-1 shrink-0 ml-2">
+          <span>(425) 599-6702</span>
+        </a>
+      </div>
+
+      <form 
+        id="modal-lead-form" 
+        class="space-y-4"
+      >
+        <!-- Name & Phone -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          <div>
+            <label for="modal-name" class="block text-xs font-['Montserrat',sans-serif] font-bold text-slate-800 uppercase tracking-wide mb-1">
+              Full Name <span class="text-[#cc181e]">*</span>
+            </label>
+            <input 
+              type="text" 
+              id="modal-name" 
+              name="name" 
+              required 
+              placeholder="Your name" 
+              class="w-full px-3.5 py-2.5 rounded border border-slate-300 bg-white text-slate-900 text-sm focus:border-[#cc181e] focus:ring-1 focus:ring-[#cc181e] focus:outline-none transition-colors"
+            />
+          </div>
+          <div>
+            <label for="modal-phone" class="block text-xs font-['Montserrat',sans-serif] font-bold text-slate-800 uppercase tracking-wide mb-1">
+              Phone Number <span class="text-[#cc181e]">*</span>
+            </label>
+            <input 
+              type="tel" 
+              id="modal-phone" 
+              name="phone" 
+              required 
+              placeholder="(425) 599-6702" 
+              class="w-full px-3.5 py-2.5 rounded border border-slate-300 bg-white text-slate-900 text-sm focus:border-[#cc181e] focus:ring-1 focus:ring-[#cc181e] focus:outline-none transition-colors"
+            />
+          </div>
+        </div>
+
+        <!-- City & Approx. Home Size -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          <div>
+            <label for="modal-city" class="block text-xs font-['Montserrat',sans-serif] font-bold text-slate-800 uppercase tracking-wide mb-1">
+              City <span class="text-[#cc181e]">*</span>
+            </label>
+            <input 
+              type="text" 
+              id="modal-city" 
+              name="city" 
+              required 
+              placeholder="e.g. Seattle, Mill Creek..." 
+              class="w-full px-3.5 py-2.5 rounded border border-slate-300 bg-white text-slate-900 text-sm focus:border-[#cc181e] focus:ring-1 focus:ring-[#cc181e] focus:outline-none transition-colors"
+            />
+          </div>
+          <div>
+            <label for="modal-size" class="block text-xs font-['Montserrat',sans-serif] font-bold text-slate-800 uppercase tracking-wide mb-1">
+              Approx. Home Size <span class="text-[#cc181e]">*</span>
+            </label>
+            <select 
+              id="modal-size" 
+              name="home_size" 
+              required
+              class="w-full px-3.5 py-2.5 rounded border border-slate-300 bg-white text-slate-900 text-sm focus:border-[#cc181e] focus:ring-1 focus:ring-[#cc181e] focus:outline-none transition-colors cursor-pointer"
+            >
+              <option value="">Select stories / size...</option>
+              <option value="1-story">1-Story Home (Rambler)</option>
+              <option value="2-story">2-Story Home</option>
+              <option value="2-story-steep">2-Story with Steep Peaks / Walkout</option>
+              <option value="3-story">3-Story Home</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Service Type -->
+        <div>
+          <label for="modal-service" class="block text-xs font-['Montserrat',sans-serif] font-bold text-slate-800 uppercase tracking-wide mb-1">
+            Service Requested
+          </label>
+          <select 
+            id="modal-service" 
+            name="service" 
+            class="w-full px-3.5 py-2.5 rounded border border-slate-300 bg-white text-slate-900 text-sm focus:border-[#cc181e] focus:ring-1 focus:ring-[#cc181e] focus:outline-none transition-colors cursor-pointer"
+          >
+            <option value="permanent-residential" selected>Permanent Holiday Roofline Lights</option>
+            <option value="commercial">Commercial Building Lighting</option>
+            <option value="patio-deck">Patio, Pergola & Bistro Lights</option>
+            <option value="repair-service">System Service / Add-on</option>
+          </select>
+        </div>
+
+        <!-- Notes -->
+        <div>
+          <label for="modal-notes" class="block text-xs font-['Montserrat',sans-serif] font-bold text-slate-800 uppercase tracking-wide mb-1">
+            Project Notes (Optional)
+          </label>
+          <textarea 
+            id="modal-notes" 
+            name="notes" 
+            rows="2" 
+            placeholder="Roofline details, approximate stories, or timeframe..." 
+            class="w-full px-3.5 py-2 rounded border border-slate-300 bg-white text-slate-900 text-sm focus:border-[#cc181e] focus:ring-1 focus:ring-[#cc181e] focus:outline-none transition-colors resize-none"
+          ></textarea>
+        </div>
+
+        <!-- Consent -->
+        <div class="text-[11px] text-slate-600 flex items-start gap-2 leading-relaxed pt-1">
+          <input type="checkbox" id="modal-consent" required checked class="mt-0.5 rounded border-slate-300 text-[#cc181e] focus:ring-0 cursor-pointer" />
+          <label for="modal-consent">
+            I agree to receive project estimates and text updates from Seattle Permanent Holiday Lights at this number. Message frequency varies. Reply STOP to opt out.
+          </label>
+        </div>
+
+        <!-- Submit Button matching reference button style -->
+        <button 
+          type="submit" 
+          class="btn-fast-quote w-full py-3.5 text-sm sm:text-base tracking-wider uppercase shadow-md cursor-pointer flex items-center justify-center gap-2"
+        >
+          <span>Get A Fast Quote</span>
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </button>
+      </form>
+
+      <!-- Trust Badges Footer -->
+      <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-center gap-4 text-[11px] font-semibold text-slate-500 uppercase tracking-wider">
+        <span class="flex items-center gap-1">
+          <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+          100% Free Quotes
+        </span>
+        <span class="flex items-center gap-1">
+          <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+          No Obligation
+        </span>
+        <span class="flex items-center gap-1">
+          <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+          Licensed & Insured
+        </span>
+      </div>
+
+    </div>
+
+  </div>
+</dialog>
+
+<script>
+  // Global modal triggers
+  const dialog = document.getElementById('quote-modal-dialog') as HTMLDialogElement | null;
+  const closeBtn = document.getElementById('close-quote-modal-btn');
+
+  if (dialog) {
+    // Open on all buttons with data-open-quote-modal
+    document.querySelectorAll('[data-open-quote-modal]').forEach(trigger => {
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        dialog.showModal();
+      });
+    });
+
+    closeBtn?.addEventListener('click', () => {
+      dialog.close();
+    });
+
+    // Auto-open if ?quote=true or ?open-quote=true
+    if (new URLSearchParams(window.location.search).has('quote') || new URLSearchParams(window.location.search).has('open-quote')) {
+      dialog.showModal();
+    }
+
+    // Close when clicking outside modal content
+    dialog.addEventListener('click', (e) => {
+      if (e.target === dialog) {
+        dialog.close();
+      }
+    });
+  }
+
+  const modalForm = document.getElementById('modal-lead-form') as HTMLFormElement | null;
+  if (modalForm) {
+    modalForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const submitBtn = modalForm.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>Sending Request...</span>';
+      }
+
+      const formData = new FormData(modalForm);
+      const fullName = (formData.get('name') || '').toString().trim();
+      const nameParts = fullName.split(/\s+/);
+      const firstName = nameParts[0] || '';
+      const lastName = nameParts.slice(1).join(' ') || '';
+      const urlParams = new URLSearchParams(window.location.search);
+
+      const payload = {
+        name: fullName,
+        first_name: firstName,
+        last_name: lastName,
+        phone: (formData.get('phone') || '').toString().trim(),
+        city: (formData.get('city') || '').toString().trim(),
+        home_size: (formData.get('home_size') || '').toString().trim(),
+        service: (formData.get('service') || '').toString().trim(),
+        notes: (formData.get('notes') || '').toString().trim(),
+        source: 'Website Fast Quote Modal',
+        page_url: window.location.href,
+        utm_source: urlParams.get('utm_source') || '',
+        utm_medium: urlParams.get('utm_medium') || '',
+        utm_campaign: urlParams.get('utm_campaign') || '',
+        utm_term: urlParams.get('utm_term') || '',
+        utm_content: urlParams.get('utm_content') || '',
+        gclid: urlParams.get('gclid') || '',
+        submitted_at: new Date().toISOString()
+      };
+
+      fetch('https://services.leadconnectorhq.com/hooks/TgmskugdRQEpf4Ul8YFr/webhook-trigger/be17e74b-c14a-4154-aad7-c290d27c9352', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload),
+        keepalive: true
+      })
+        .catch(() => {
+          try {
+            const formParams = new URLSearchParams();
+            Object.entries(payload).forEach(([k, v]) => formParams.append(k, v));
+            if (navigator.sendBeacon) {
+              navigator.sendBeacon('https://services.leadconnectorhq.com/hooks/TgmskugdRQEpf4Ul8YFr/webhook-trigger/be17e74b-c14a-4154-aad7-c290d27c9352', formParams);
+            }
+          } catch (err) {}
+        })
+        .finally(() => {
+          let redirectUrl = '/thank-you';
+          if (firstName) {
+            redirectUrl += '?name=' + encodeURIComponent(firstName);
+          }
+          window.location.href = redirectUrl;
+        });
+    });
+  }
+</script>

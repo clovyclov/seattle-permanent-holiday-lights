@@ -1,0 +1,126 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CallToAction from '../../components/CallToAction.astro';
+import FaqAccordion from '../../components/FaqAccordion.astro';
+---
+
+<Layout 
+  title="Patio, Pergola & Landscape Accent Lighting | Seattle"
+  description="Year-round ambient bistro and outdoor accent lighting for decks, covered patios, gazebos, and landscape features throughout Greater Seattle."
+>
+  <section class="relative min-h-[480px] flex items-center justify-center overflow-hidden bg-[#001f35] py-20">
+    <div class="absolute inset-0 z-0">
+      <img 
+        src="/images/IMG_1231.jpg" 
+        alt="Patio and outdoor living lighting" 
+        class="w-full h-full object-cover filter brightness-[0.4] contrast-[1.1]"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-[#001f35]/90 via-[#001f35]/40 to-[#001f35]/90"></div>
+    </div>
+
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#cc181e] text-white text-xs font-['Montserrat',sans-serif] font-black uppercase tracking-wider">
+        Outdoor Living Spaces
+      </div>
+      <h1 class="font-['Montserrat',sans-serif] font-black text-3xl sm:text-5xl lg:text-6xl text-white uppercase tracking-tight leading-tight">
+        Patio, Deck &<br class="hidden sm:block" /> Landscape Accent Lighting
+      </h1>
+      <p class="text-slate-100 text-sm sm:text-lg max-w-2xl mx-auto font-medium leading-relaxed drop-shadow">
+        Extend your living room into the backyard. Weatherproof LED track systems designed for covered patios, outdoor kitchens, pergolas, and deck railings.
+      </p>
+
+      <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <button 
+          type="button" 
+          data-open-quote-modal 
+          class="btn-fast-quote text-sm sm:text-base px-8 py-3.5"
+        >
+          Get A Fast Quote
+        </button>
+        <a 
+          href="tel:4255996702" 
+          class="px-6 py-3.5 rounded bg-white/10 hover:bg-white/20 text-white font-['Montserrat',sans-serif] font-bold text-xs uppercase tracking-wider backdrop-blur-sm transition-colors border border-white/20"
+        >
+          Call (425) 599-6702
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Patio Features on Light Background -->
+  <section class="py-20 bg-[#f9f6f7] border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-6 space-y-6">
+          <div class="space-y-2">
+            <span class="text-xs uppercase font-['Montserrat',sans-serif] font-black tracking-widest text-[#cc181e] block">
+              Backyard & Entertaining
+            </span>
+            <h2 class="font-['Montserrat',sans-serif] font-black text-2xl sm:text-4xl text-[#002b47] uppercase tracking-tight leading-tight">
+              Warm, Dimmable Outdoor Living
+            </h2>
+          </div>
+          
+          <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
+            Whether having dinner on the back patio or hosting a summer barbecue, our outdoor track lighting provides warm, dimmable ambient light that integrates cleanly with pergolas, deck headers, and outdoor living structures.
+          </p>
+
+          <div class="space-y-3.5 pt-2">
+            <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm border-l-4 border-l-[#002b47]">
+              <h3 class="font-['Montserrat',sans-serif] font-black text-sm uppercase text-[#002b47] mb-1">
+                Warm White Architectural Glow
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Tune the color temperature and brightness down for intimate dinners, or turn it up for cooking and backyard entertaining.
+              </p>
+            </div>
+
+            <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm border-l-4 border-l-[#cc181e]">
+              <h3 class="font-['Montserrat',sans-serif] font-black text-sm uppercase text-[#002b47] mb-1">
+                Pergola & Deck Railing Integration
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Tracks mount to the underside of patio beams, gazebos, or perimeter deck railings so bulbs point downward without glare.
+              </p>
+            </div>
+
+            <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm border-l-4 border-l-emerald-600">
+              <h3 class="font-['Montserrat',sans-serif] font-black text-sm uppercase text-[#002b47] mb-1">
+                Rain-Proof IP68 Connections
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Designed to withstand Pacific Northwest wet winters without corrosion, sagging cords, or tripped breakers.
+              </p>
+            </div>
+          </div>
+
+          <div class="pt-2">
+            <button 
+              type="button" 
+              data-open-quote-modal 
+              class="btn-fast-quote text-xs py-3 px-6"
+            >
+              Get A Patio Lighting Quote
+            </button>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6">
+          <div class="bg-white p-2 rounded-lg border border-slate-200 shadow-lg overflow-hidden">
+            <img 
+              src="/images/IMG_1231.jpg" 
+              alt="Outdoor patio lighting installation" 
+              class="w-full h-[440px] object-cover rounded"
+            />
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <FaqAccordion />
+  <CallToAction />
+</Layout>

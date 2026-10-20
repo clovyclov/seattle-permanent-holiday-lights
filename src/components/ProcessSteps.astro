@@ -1,0 +1,169 @@
+---
+// ProcessSteps.astro - Section 6 interactive 3-step walkthrough
+const steps = [
+  {
+    id: 1,
+    num: "01",
+    title: "Get A Fast Quote",
+    description: "Fill out our quick online form or give us a call at (425) 599-6702. We calculate your linear roofline footage and provide an honest, upfront quote with no hidden fees.",
+    btnText: "Get A Fast Quote"
+  },
+  {
+    id: 2,
+    num: "02",
+    title: "Custom Design & Color Match",
+    description: "We custom-measure your roofline and match heavy-duty aluminum tracks directly to your home's trim and fascia color. Every peak, gutter, and eave channel is custom-cut for an invisible fit by day.",
+    btnText: "Get A Fast Quote"
+  },
+  {
+    id: 3,
+    num: "03",
+    title: "Professional Installation",
+    description: "Our licensed, bonded, and insured technicians secure the track, conceal all wiring, program your smartphone app, and test every individual diode before cleanup.",
+    btnText: "Get A Fast Quote"
+  }
+];
+---
+
+<section id="process" class="py-20 sm:py-24 bg-white relative">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Centered Headline matching screenshot -->
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <h2 class="font-['Montserrat',sans-serif] font-black text-2xl sm:text-3xl lg:text-4xl text-[#002b47] uppercase tracking-tight">
+        Get the Best Lighting Installation in Just 3 Easy Steps
+      </h2>
+    </div>
+
+    <!-- 3-Step Card Container -->
+    <div class="bg-white rounded-lg border border-slate-200 shadow-xl overflow-hidden p-6 sm:p-10">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        
+        <!-- Left: 3 Steps Tab/List -->
+        <div class="md:col-span-7 space-y-4" id="step-tabs-container">
+          {steps.map((step, idx) => (
+            <div 
+              class={`step-tab p-4 rounded-r-lg border-l-4 cursor-pointer transition-all duration-200 ${
+                idx === 0 
+                  ? 'border-[#cc181e] bg-slate-50/70 shadow-xs' 
+                  : 'border-slate-200 hover:border-slate-400 opacity-70 hover:opacity-100 bg-transparent'
+              }`}
+              data-step={step.id}
+              role="button"
+              tabindex="0"
+              aria-expanded={idx === 0 ? "true" : "false"}
+            >
+              <div class="flex items-center gap-3">
+                <span class={`step-num font-['Montserrat',sans-serif] font-black text-2xl transition-colors ${
+                  idx === 0 ? 'text-[#cc181e]' : 'text-slate-400'
+                }`}>
+                  {step.num}
+                </span>
+                <h3 class="font-['Montserrat',sans-serif] font-bold text-base sm:text-lg text-[#002b47] uppercase">
+                  {step.title}
+                </h3>
+              </div>
+              
+              <div class={`step-body ${idx === 0 ? 'block' : 'hidden'} mt-2 space-y-4`}>
+                <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                  {step.description}
+                </p>
+                <div>
+                  <button 
+                    type="button" 
+                    data-open-quote-modal 
+                    class="btn-fast-quote text-xs py-2.5 px-6"
+                  >
+                    {step.btnText}
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Right: Checklist Graphic Illustration matching screenshot -->
+        <div class="md:col-span-5 flex justify-center">
+          <img 
+            src="/images/step-checklist.svg" 
+            alt="Lighting installation checklist" 
+            class="w-full max-w-xs h-auto object-contain"
+          />
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script is:inline>
+  (function() {
+    function initProcessTabs() {
+      var tabs = document.querySelectorAll('.step-tab');
+      if (!tabs || !tabs.length) return;
+
+      tabs.forEach(function(tab) {
+        tab.addEventListener('click', function(e) {
+          // If user clicked the button inside the active tab, let button handle it
+          if (e.target && e.target.closest('button')) return;
+
+          var stepId = tab.getAttribute('data-step');
+
+          tabs.forEach(function(t) {
+            var isSelected = t.getAttribute('data-step') === stepId;
+            var num = t.querySelector('.step-num');
+            var body = t.querySelector('.step-body');
+
+            t.setAttribute('aria-expanded', isSelected ? 'true' : 'false');
+
+            if (isSelected) {
+              t.classList.remove('border-slate-200', 'opacity-70', 'bg-transparent');
+              t.classList.add('border-[#cc181e]', 'bg-slate-50/70', 'shadow-xs', 'opacity-100');
+              if (num) {
+                num.classList.remove('text-slate-400');
+                num.classList.add('text-[#cc181e]');
+              }
+              if (body) {
+                body.classList.remove('hidden');
+                body.classList.add('block');
+              }
+            } else {
+              t.classList.remove('border-[#cc181e]', 'bg-slate-50/70', 'shadow-xs', 'opacity-100');
+              t.classList.add('border-slate-200', 'opacity-70', 'bg-transparent');
+              if (num) {
+                num.classList.remove('text-[#cc181e]');
+                num.classList.add('text-slate-400');
+              }
+              if (body) {
+                body.classList.remove('block');
+                body.classList.add('hidden');
+              }
+            }
+          });
+        });
+
+        tab.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            tab.click();
+          }
+        });
+      });
+
+      // Auto-activate step if URL hash has #step-2 or #step-3
+      var hashMatch = window.location.hash.match(/step-([1-3])/);
+      if (hashMatch && hashMatch[1]) {
+        var targetTab = document.querySelector('.step-tab[data-step="' + hashMatch[1] + '"]');
+        if (targetTab) targetTab.click();
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initProcessTabs);
+    } else {
+      initProcessTabs();
+    }
+    document.addEventListener('astro:page-load', initProcessTabs);
+  })();
+</script>

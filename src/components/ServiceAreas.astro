@@ -1,0 +1,205 @@
+---
+// ServiceAreas.astro - Section 7 with real Snohomish County map (no Google popups, no outer box text)
+const snohomishCities = [
+  { name: "Everett", href: "/service-areas#everett" },
+  { name: "Marysville", href: "/service-areas#marysville" },
+  { name: "Mill Creek", href: "/service-areas#mill-creek" },
+  { name: "Lynnwood", href: "/service-areas#lynnwood" },
+  { name: "Edmonds", href: "/service-areas#edmonds" },
+  { name: "Bothell", href: "/service-areas#bothell" },
+  { name: "Snohomish", href: "/service-areas#snohomish" },
+  { name: "Lake Stevens", href: "/service-areas#lake-stevens" },
+  { name: "Arlington", href: "/service-areas#arlington" },
+  { name: "Monroe", href: "/service-areas#monroe" },
+  { name: "Stanwood", href: "/service-areas#stanwood" },
+  { name: "Woodinville", href: "/service-areas#woodinville" }
+];
+---
+
+<section id="service-areas" class="py-20 sm:py-24 bg-[#f8fafc] border-y border-slate-200 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Headline matching inspiration -->
+    <div class="text-center max-w-4xl mx-auto mb-12 space-y-3">
+      <span class="text-xs uppercase font-['Montserrat',sans-serif] font-black tracking-widest text-[#cc181e] block">
+        Snohomish County & Puget Sound Coverage
+      </span>
+      <h2 class="font-['Montserrat',sans-serif] font-black text-2xl sm:text-3xl lg:text-4xl text-[#002b47] uppercase tracking-tight leading-tight">
+        Get the <span class="text-[#cc181e]">Highest Quality</span> Permanent Lighting in Snohomish County
+      </h2>
+      <p class="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto">
+        Mobile installation crews dispatched across Snohomish County with custom aluminum tracks, commercial IP68 LEDs, and precision measuring equipment.
+      </p>
+    </div>
+
+    <!-- Map & Service Dispatch Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+      
+      <!-- Left: Pure Snohomish County Map (No outer box text, no Google Directions card) -->
+      <div class="lg:col-span-7 rounded-xl overflow-hidden border border-slate-300 shadow-xl h-[460px] bg-slate-100 relative">
+        <div id="snohomish-map" class="w-full h-full"></div>
+      </div>
+
+      <!-- Right: Real Dispatch & Coverage Information Panel -->
+      <div class="lg:col-span-5 bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-lg flex flex-col justify-between space-y-6">
+        
+        <div class="space-y-4">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-1 rounded bg-[#002b47] text-white text-[11px] font-['Montserrat',sans-serif] font-black uppercase tracking-wider">
+              Snohomish County
+            </span>
+            <span class="px-2.5 py-1 rounded bg-slate-100 text-slate-700 text-[11px] font-bold">
+              King & Skagit Coverage
+            </span>
+          </div>
+
+          <h3 class="font-['Montserrat',sans-serif] font-black text-xl text-[#002b47] uppercase leading-snug">
+            Mobile Installation Crews Dispatched Daily
+          </h3>
+          
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            We provide fast on-site measurements and satellite roofline calculations throughout Snohomish County. Every installation is handled by our licensed, insured technicians.
+          </p>
+
+          <!-- Communities Served Pills -->
+          <div class="pt-2">
+            <p class="text-xs font-['Montserrat',sans-serif] font-bold text-slate-800 uppercase tracking-wide mb-2.5">
+              Service Communities:
+            </p>
+            <div class="flex flex-wrap gap-1.5">
+              {snohomishCities.map((city) => (
+                <a 
+                  href={city.href}
+                  class="px-2.5 py-1 rounded bg-slate-100 hover:bg-[#002b47] text-slate-700 hover:text-white text-xs font-semibold transition-colors border border-slate-200"
+                >
+                  {city.name}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Trust points -->
+          <div class="pt-2 space-y-2 border-t border-slate-100 text-xs text-slate-600">
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Same-week free on-site roofline measurements</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Fully licensed, bonded & insured in Washington State</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phone & Quote Trigger -->
+        <div class="pt-4 border-t border-slate-100 space-y-3">
+          <div class="flex items-center justify-between">
+            <div class="text-xs text-slate-500 font-medium">Ready for an estimate?</div>
+            <a 
+              href="tel:4255996702" 
+              class="font-['Montserrat',sans-serif] font-black text-sm text-[#cc181e] hover:underline"
+            >
+              (425) 599-6702
+            </a>
+          </div>
+
+          <button 
+            type="button" 
+            data-open-quote-modal 
+            class="btn-fast-quote w-full py-3.5 text-xs sm:text-sm tracking-wider uppercase text-center shadow-md cursor-pointer"
+          >
+            Get A Fast Quote In Your Area
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- Leaflet CSS & JS for Real Interactive Snohomish County Map -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script is:inline>
+  (function() {
+    function initSnohomishMap() {
+      var mapContainer = document.getElementById('snohomish-map');
+      if (!mapContainer || typeof L === 'undefined') return;
+
+      // Prevent re-initialization if already loaded
+      if (mapContainer._leaflet_id) return;
+
+      // Centered on Snohomish County
+      var map = L.map('snohomish-map', { 
+        scrollWheelZoom: false,
+        zoomControl: true 
+      }).setView([48.03, -122.12], 10);
+
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(map);
+
+      // Key Snohomish County cities with custom crimson pins
+      var cities = [
+        { name: "Everett", lat: 47.9789, lng: -122.2021 },
+        { name: "Marysville", lat: 48.0518, lng: -122.1771 },
+        { name: "Mill Creek", lat: 47.8598, lng: -122.2065 },
+        { name: "Lynnwood", lat: 47.8209, lng: -122.3151 },
+        { name: "Edmonds", lat: 47.8107, lng: -122.3774 },
+        { name: "Bothell", lat: 47.7601, lng: -122.2054 },
+        { name: "Arlington", lat: 48.1987, lng: -122.1238 },
+        { name: "Lake Stevens", lat: 48.0151, lng: -122.0637 },
+        { name: "Snohomish", lat: 47.9129, lng: -122.0982 },
+        { name: "Monroe", lat: 47.8557, lng: -121.9698 },
+        { name: "Stanwood", lat: 48.2415, lng: -122.3707 }
+      ];
+
+      cities.forEach(function(c) {
+        var pinHtml = '<div style="background-color: #cc181e; width: 14px; height: 14px; border-radius: 50%; border: 2.5px solid #ffffff; box-shadow: 0 2px 5px rgba(0,0,0,0.4);"></div>';
+        var icon = L.divIcon({
+          className: 'snohomish-pin',
+          html: pinHtml,
+          iconSize: [14, 14],
+          iconAnchor: [7, 7]
+        });
+
+        L.marker([c.lat, c.lng], { icon: icon })
+          .addTo(map)
+          .bindTooltip('<span style="font-family: Montserrat, sans-serif; font-weight: 800; font-size: 11px; text-transform: uppercase; color: #002b47; letter-spacing: 0.03em;">' + c.name + '</span>', { 
+            permanent: true, 
+            direction: 'top',
+            offset: [0, -6]
+          });
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initSnohomishMap);
+    } else {
+      initSnohomishMap();
+    }
+    document.addEventListener('astro:page-load', initSnohomishMap);
+  })();
+</script>
+
+<style is:global>
+  /* Ensure Leaflet tooltip styling matches site aesthetic */
+  .leaflet-tooltip {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 4px !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.12) !important;
+    padding: 2px 6px !important;
+  }
+  .leaflet-tooltip-top:before {
+    border-top-color: #cbd5e1 !important;
+  }
+</style>

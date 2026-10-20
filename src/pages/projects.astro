@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Gallery from '../components/Gallery.astro';
+import RecentProjectSpotlight from '../components/RecentProjectSpotlight.astro';
+import CallToAction from '../components/CallToAction.astro';
+---
+
+<Layout 
+  title="Our Projects | Seattle Permanent Holiday Lights"
+  description="Explore completed permanent roofline, holiday, and architectural lighting installations throughout Seattle, Mill Creek, Bellevue, and surrounding communities."
+>
+  <section class="py-16 bg-[#001f35] border-b border-[#002b47] text-center text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#cc181e] text-white text-xs font-['Montserrat',sans-serif] font-black uppercase tracking-wider">
+        Completed Installations
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-['Montserrat',sans-serif] font-black text-white uppercase tracking-tight">
+        Our Lighting Projects
+      </h1>
+      <p class="text-slate-200 text-base sm:text-lg max-w-2xl mx-auto font-medium">
+        Take a look at real permanent lighting systems installed on Puget Sound homes and commercial buildings.
+      </p>
+    </div>
+  </section>
+
+  <RecentProjectSpotlight />
+  <Gallery />
+  <CallToAction />
+</Layout>

@@ -1,0 +1,32 @@
+---
+// CallToAction.astro - Section 9 from reference screenshot
+---
+
+<section class="relative py-24 sm:py-32 overflow-hidden bg-[#001f35] text-white text-center">
+  <!-- Night House Silhouette Background -->
+  <div class="absolute inset-0 z-0">
+    <img 
+      src="/images/IMG_8159.jpg" 
+      alt="Illuminated home at night" 
+      class="w-full h-full object-cover object-bottom filter brightness-[0.25] contrast-[1.2]"
+      loading="lazy"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-[#001f35] via-[#001f35]/70 to-[#001f35]/90"></div>
+  </div>
+
+  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+    <h2 class="font-['Montserrat',sans-serif] font-black text-3xl sm:text-5xl lg:text-6xl text-white uppercase tracking-tight leading-tight drop-shadow-md">
+      Ready for the Best Permanent Light Installation in the Seattle Area?
+    </h2>
+
+    <div class="pt-4">
+      <button 
+        type="button" 
+        data-open-quote-modal 
+        class="btn-fast-quote text-sm sm:text-base px-9 py-4 tracking-wider"
+      >
+        Get A Fast Quote
+      </button>
+    </div>
+  </div>
+</section>

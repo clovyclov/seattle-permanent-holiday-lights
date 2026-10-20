@@ -1,0 +1,1238 @@
+---
+// src/pages/lp.astro
+// Dedicated Google Ads Direct-Response Landing Page for Seattle Permanent Holiday Lights
+// Built specifically for "Done-With-the-Ladder Dave" & "Curb-Appeal Carla" (45-65 homeowner demographic)
+// Strict conversion rules: No top nav menu, 18px+ body copy, warm amber/gold CTAs, real install photos only.
+
+import '../styles/global.css';
+
+const companyName = "Seattle Permanent Holiday Lights";
+const phoneDisplay = "(425) 599-6702";
+const phoneHref = "tel:4255996702";
+const serviceArea = "Seattle, Snohomish County & the Eastside";
+
+// Placeholders flagged for client confirmation (rendered with realistic defaults + subtle indicator)
+const placeholders = {
+  googleRating: "5.0", // [PLACEHOLDER: Confirm exact Google star rating]
+  reviewCount: "48+",  // [PLACEHOLDER: Confirm exact Google review count]
+  yearsInBusiness: "5+", // [PLACEHOLDER: Confirm years in business]
+  productWarranty: "5-Year", // [PLACEHOLDER: Confirm product warranty years, e.g., 5-Year / 10-Year / Lifetime]
+  laborWarranty: "3-Year",   // [PLACEHOLDER: Confirm labor warranty years]
+  responseTimeHours: "24",   // [PLACEHOLDER: Confirm callback SLA hours]
+  typicalPriceRange: "$2,800 – $5,200", // [PLACEHOLDER: Confirm typical 150-250ft home price range]
+  monthlyFinancing: "$95",   // [PLACEHOLDER: Confirm monthly financing payment or remove if no financing]
+  cutoffDate: "November 22", // [PLACEHOLDER: Confirm Christmas install cutoff date]
+  remainingSlots: "7",       // [PLACEHOLDER: Confirm real remaining pre-Christmas install slots]
+  licenseNumber: "WA Lic #SEATTPH781QW", // [PLACEHOLDER: Confirm exact WA L&I contractor license #]
+  streetAddress: "Mill Creek & Seattle, WA", // [PLACEHOLDER: Confirm physical shop/office street address]
+  ownerName: "The Local Install Team" // [PLACEHOLDER: Confirm owner first & last name]
+};
+
+const yearRoundModes = [
+  {
+    label: "Everyday Warm White",
+    occasion: "365-Day Curb Appeal & Security",
+    img: "/images/IMG_0034.jpg",
+    desc: "Soft warm-white downlighting that looks like recessed architectural lighting built into your eaves."
+  },
+  {
+    label: "Christmas & Holidays",
+    occasion: "December Classic or Candy Cane",
+    img: "/images/IMG_2859.jpg",
+    desc: "Crisp, straight lines along every peak and gable. Switch between classic warm white, red and green, or custom patterns."
+  },
+  {
+    label: "Game Day (Seahawks)",
+    occasion: "Sundays & Playoffs",
+    img: "/images/IMG_8159.jpg",
+    desc: "Tap your phone on Sunday afternoon and light up the roofline in navy and action green."
+  },
+  {
+    label: "Halloween",
+    occasion: "October Nights",
+    img: "/images/IMG_2891.jpg",
+    desc: "Orange and purple glow across the front peaks without hanging a single extra strand."
+  },
+  {
+    label: "4th of July & Summer",
+    occasion: "Red, White & Blue",
+    img: "/images/IMG_0029.jpg",
+    desc: "Patriotic presets for summer cookouts, Memorial Day, and the 4th of July."
+  },
+  {
+    label: "Birthdays & Family Nights",
+    occasion: "Custom Colors in 2 Taps",
+    img: "/images/IMG_3085.jpg",
+    desc: "Pick your kid's or grandkid's favorite color for birthdays, graduations, and family dinners."
+  }
+];
+
+const reviews = [
+  {
+    quote: "My wife finally put her foot down about me climbing onto our two-story roof in the November rain. The crew matched our white trim so well you genuinely cannot tell the track is there during the day. Wish we did this five years ago.",
+    author: "Dave M.",
+    location: "Mill Creek, WA",
+    highlight: "Invisible in daylight · Two-story install"
+  },
+  {
+    quote: "We were paying $550 every November to have temporary lights hung and taken down in January. These were done in one day, zero mess in the driveway, and we run the warm white mode every single night now.",
+    author: "Mark & Sarah T.",
+    location: "Bothell, WA",
+    highlight: "Done in one day · Everyday warm white"
+  },
+  {
+    quote: "I'm 62 and not great with phone apps, so I was worried I'd have to call my kids every time I wanted to turn them on. The installer set up our timers before he left the driveway. They turn on at sunset by themselves.",
+    author: "Robert K.",
+    location: "Snohomish, WA",
+    highlight: "Simple app · Set-and-forget timer"
+  },
+  {
+    quote: "Our HOA is strict about exterior changes. Seattle Permanent Holiday Lights gave us the color sample and spec sheet for the board, got it approved in a week, and tucked every wire out of sight. Neighbors keep stopping to ask who did it.",
+    author: "Jennifer L.",
+    location: "Kirkland, WA",
+    highlight: "HOA approved · Clean concealed wiring"
+  }
+];
+
+const faqs = [
+  {
+    q: "How much does it cost?",
+    a: `Most single-family homes in the Seattle and Snohomish County area run between ${placeholders.typicalPriceRange}, depending on how many linear feet of roofline you want lit and whether your home is one or two stories. Most homeowners start with the front roofline and peaks where you get 90% of the curb appeal. We give you an exact, written price before you decide—no high-pressure sales pitch.`
+  },
+  {
+    q: "Will it look like I left my Christmas lights up all year?",
+    a: "No. Nothing hangs down. The lights sit inside a slim aluminum track that is powder-coated to match your home's exact soffit and trim color. From the street during the day, it looks like a factory edge on your eaves. When you turn on the warm-white mode at night, it looks like high-end recessed architectural lighting."
+  },
+  {
+    q: "Do you drill into my house? Will it cause leaks?",
+    a: "We never drill through your roof shingles, membrane, or gutters. The aluminum channel fastens underneath your soffit or along the bottom lip of the fascia using sealed, rust-proof exterior fasteners. Your roof warranty stays intact, and water runoff never touches the wiring."
+  },
+  {
+    q: "Will my HOA allow it?",
+    a: "Yes. Because the track is color-matched to your trim and completely hidden during the day, local HOAs across Mill Creek, Bothell, Kirkland, and Snohomish County approve our installs regularly. We put together the HOA approval packet for you—including photos, track specs, and paint match details."
+  },
+  {
+    q: "What if a light goes out in two years?",
+    a: `Each light is wired so that if one bulb ever has an issue, the rest of the roofline stays lit. More importantly, you have a ${placeholders.productWarranty} product warranty and ${placeholders.laborWarranty} labor warranty with a local crew. Call us at ${phoneDisplay}, we answer the phone, and we come out and swap the module in minutes.`
+  },
+  {
+    q: "Is the app hard to use?",
+    a: "Not at all. Before our crew leaves your driveway, we install the app on your phone, connect it to your Wi-Fi, set up an automatic sunset-to-bedtime schedule, and save your favorite holiday presets. Turning your lights on or changing to Christmas takes two taps."
+  },
+  {
+    q: "How much electricity does it use?",
+    a: "Very little. The entire roofline draws less power than a single standard kitchen appliance. Most homeowners running their lights every evening in warm-white mode see less than $4 to $7 a month on their PUD or Seattle City Light bill."
+  },
+  {
+    q: "Can you install before Christmas?",
+    a: `Most residential installs are finished in a single day. However, our pre-Christmas schedule fills up by ${placeholders.cutoffDate} every year. When you request a quote today, we show you our next open install dates right away so you can lock in your spot.`
+  }
+];
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Never Climb a Ladder for Christmas Lights Again | {companyName}</title>
+    <meta name="description" content="Permanent, app-controlled holiday lights hidden in your trim. Installed in one day by a local Seattle & Snohomish County crew. Get your free quote today." />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      body {
+        font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-size: 18px;
+        line-height: 1.65;
+        color: #1e293b;
+        background-color: #ffffff;
+      }
+      h1, h2, h3, h4, .font-heading {
+        font-family: 'Montserrat', sans-serif;
+      }
+      /* Warm Gold / Amber Direct-Response CTA Button */
+      .btn-amber {
+        background: linear-gradient(180deg, #fbbf24 0%, #d97706 100%);
+        color: #0f172a;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 900;
+        border: 1px solid #f59e0b;
+        box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+        transition: all 0.15s ease-in-out;
+      }
+      .btn-amber:hover {
+        background: linear-gradient(180deg, #fcd34d 0%, #b45309 100%);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
+      }
+      .btn-amber:active {
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+
+  <body class="pb-20 md:pb-0 antialiased selection:bg-amber-400 selection:text-slate-950">
+
+    <!-- =====================================================================
+         1. HEADER: Logo Left, Click-to-Call Right. NO Navigation Menu.
+    ====================================================================== -->
+    <header class="sticky top-0 z-50 bg-[#071324] border-b border-slate-800 text-white shadow-lg">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+        
+        <!-- Clean Brand Wordmark (No cartoon Santa, per brief rules) -->
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-lg bg-amber-500/15 border border-amber-400/40 flex items-center justify-center text-amber-400 shrink-0">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l9-9 9 9M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+          </div>
+          <div>
+            <span class="font-heading font-black text-base sm:text-lg tracking-tight uppercase text-white block leading-none">
+              Seattle Permanent
+            </span>
+            <span class="font-heading font-bold text-xs tracking-widest uppercase text-amber-400 block mt-0.5">
+              Holiday Lights
+            </span>
+          </div>
+        </div>
+
+        <!-- Direct Click-to-Call -->
+        <a 
+          href={phoneHref}
+          class="inline-flex items-center gap-2.5 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-400/40 rounded-lg px-4 py-2.5 transition-colors"
+        >
+          <svg class="w-5 h-5 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+          <div class="text-left">
+            <span class="block text-[11px] uppercase tracking-wider text-slate-300 font-bold leading-none">Call or Text a Local Estimator</span>
+            <span class="font-heading font-black text-base sm:text-lg text-white leading-tight">{phoneDisplay}</span>
+          </div>
+        </a>
+
+      </div>
+    </header>
+
+    <!-- =====================================================================
+         2. HERO: Dark Night-Sky Hero with Warm Glow, Real Local Home & Short Form
+    ====================================================================== -->
+    <section id="top-quote" class="relative bg-[#071324] text-white py-12 sm:py-16 lg:py-20 overflow-hidden border-b border-slate-800">
+      <!-- Real Local Install Night Photo Background -->
+      <div class="absolute inset-0 z-0">
+        <img 
+          src="/images/IMG_0034.jpg" 
+          alt="Local Seattle two-story home with permanent warm-white holiday lights at night" 
+          class="w-full h-full object-cover object-center opacity-35 filter contrast-110"
+          loading="eager"
+        />
+        <div class="absolute inset-0 bg-gradient-to-r from-[#071324] via-[#071324]/90 to-[#071324]/70"></div>
+      </div>
+
+      <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          
+          <!-- Left Column: Direct-Response Headline & Proof -->
+          <div class="lg:col-span-7 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/15 border border-amber-400/40 text-amber-300 text-sm font-bold">
+              <svg class="w-4 h-4 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Serving {serviceArea}</span>
+            </div>
+
+            <!-- Primary Headline (Alternate 1 & 2 documented in copy brief) -->
+            <h1 class="font-heading font-black text-3xl sm:text-5xl lg:text-[52px] text-white leading-[1.1] tracking-tight">
+              Never Climb a Ladder for Christmas Lights Again.
+            </h1>
+
+            <p class="text-lg sm:text-xl text-slate-200 font-normal leading-relaxed max-w-2xl">
+              Permanent, app-controlled lights hidden in your trim. Installed in one day by a local Seattle & Snohomish County crew.
+            </p>
+
+            <!-- 3 Quick Value Bullets in plain homeowner language -->
+            <ul class="space-y-3 pt-1 text-base sm:text-lg text-slate-100">
+              <li class="flex items-start gap-3">
+                <svg class="w-6 h-6 text-amber-400 shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <span><strong>Hidden in your trim:</strong> Color-matched aluminum track you can't see from the street during the day.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-6 h-6 text-amber-400 shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <span><strong>Tap your phone and the house lights up:</strong> Everyday warm white, Christmas, Seahawks game days, and Halloween.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-6 h-6 text-amber-400 shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <span><strong>Stop paying for lights every year:</strong> One-time upgrade backed by a local crew that answers the phone.</span>
+              </li>
+            </ul>
+
+            <!-- Featured Real Local Install Preview Card -->
+            <div class="pt-2 hidden sm:grid grid-cols-2 gap-4 max-w-xl">
+              <div class="rounded-lg overflow-hidden border border-slate-700 bg-slate-900/80">
+                <img src="/images/IMG_0034.jpg" alt="Warm white everyday mode on local home" class="w-full h-32 object-cover" />
+                <div class="px-3 py-1.5 text-xs font-bold text-amber-300">Everyday Warm-White Mode</div>
+              </div>
+              <div class="rounded-lg overflow-hidden border border-slate-700 bg-slate-900/80">
+                <img src="/images/IMG_0029.jpg" alt="Holiday color mode on the exact same home" class="w-full h-32 object-cover" />
+                <div class="px-3 py-1.5 text-xs font-bold text-amber-300">Same House — Holiday Mode</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: High-Converting Above-the-Fold Quote Form -->
+          <div class="lg:col-span-5">
+            <div class="bg-white text-slate-900 rounded-2xl p-6 sm:p-8 shadow-2xl border-2 border-amber-400/80">
+              <div class="mb-5">
+                <span class="text-xs font-heading font-black uppercase tracking-wider text-amber-700 bg-amber-100 px-2.5 py-1 rounded">
+                  Free Measure & Estimate
+                </span>
+                <h2 class="font-heading font-black text-2xl sm:text-3xl text-slate-900 mt-2 leading-tight">
+                  Get Your Free Quote
+                </h2>
+                <p class="text-sm sm:text-base text-slate-600 mt-1">
+                  Enter your details below and our owner will reach out to give you a custom estimate. No pressure pitch.
+                </p>
+              </div>
+
+              <form 
+                class="lead-quote-form space-y-4"
+              >
+                <div>
+                  <label for="hero-name" class="block text-sm font-bold text-slate-800 mb-1">Your Name *</label>
+                  <input 
+                    type="text" 
+                    id="hero-name" 
+                    name="name" 
+                    required 
+                    placeholder="First and last name"
+                    class="w-full px-4 py-3 rounded-lg border border-slate-300 text-slate-900 text-base focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 focus:outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label for="hero-phone" class="block text-sm font-bold text-slate-800 mb-1">Phone Number *</label>
+                  <input 
+                    type="tel" 
+                    id="hero-phone" 
+                    name="phone" 
+                    required 
+                    placeholder="(425) 599-6702"
+                    class="w-full px-4 py-3 rounded-lg border border-slate-300 text-slate-900 text-base focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 focus:outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label for="hero-city" class="block text-sm font-bold text-slate-800 mb-1">City *</label>
+                  <input 
+                    type="text" 
+                    id="hero-city" 
+                    name="city" 
+                    required 
+                    placeholder="e.g. Mill Creek, Bothell, Seattle"
+                    class="w-full px-4 py-3 rounded-lg border border-slate-300 text-slate-900 text-base focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 focus:outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label for="hero-size" class="block text-sm font-bold text-slate-800 mb-1">Approx. Home Size *</label>
+                  <select 
+                    id="hero-size" 
+                    name="home_size"
+                    required
+                    class="w-full px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-900 text-base focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 focus:outline-none"
+                  >
+                    <option value="">Select stories / size...</option>
+                    <option value="1-story">1-Story Home (Rambler)</option>
+                    <option value="2-story">2-Story Home</option>
+                    <option value="2-story-steep">2-Story with Steep Peaks / Walkout</option>
+                    <option value="3-story">3-Story Home</option>
+                  </select>
+                </div>
+
+                <button 
+                  type="submit" 
+                  class="btn-amber w-full py-4 px-6 rounded-xl text-lg uppercase tracking-wide cursor-pointer flex items-center justify-center gap-2"
+                >
+                  <span>Get My Free Quote</span>
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </button>
+
+                <p class="text-xs text-slate-500 text-center leading-snug pt-1">
+                  Free, no-obligation quote. We never share your number.
+                </p>
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Trust Strip Under Hero -->
+        <div class="mt-10 pt-8 border-t border-slate-800 grid grid-cols-2 lg:grid-cols-4 gap-4 text-center sm:text-left">
+          <div class="flex items-center justify-center sm:justify-start gap-3 bg-slate-900/70 px-4 py-3 rounded-xl border border-slate-800">
+            <div class="flex text-amber-400 shrink-0">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <div class="text-sm">
+              <strong class="text-white">{placeholders.googleRating} Stars</strong>
+              <span class="text-slate-300 block text-xs">From {placeholders.reviewCount} Local Reviews</span>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-center sm:justify-start gap-3 bg-slate-900/70 px-4 py-3 rounded-xl border border-slate-800">
+            <svg class="w-6 h-6 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+            <div class="text-sm">
+              <strong class="text-white">{placeholders.productWarranty} Warranty</strong>
+              <span class="text-slate-300 block text-xs">Parts & Local Labor Covered</span>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-center sm:justify-start gap-3 bg-slate-900/70 px-4 py-3 rounded-xl border border-slate-800">
+            <svg class="w-6 h-6 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <div class="text-sm">
+              <strong class="text-white">{placeholders.yearsInBusiness} Years Experience</strong>
+              <span class="text-slate-300 block text-xs">Most Installs Done in 1 Day</span>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-center sm:justify-start gap-3 bg-slate-900/70 px-4 py-3 rounded-xl border border-slate-800">
+            <svg class="w-6 h-6 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <div class="text-sm">
+              <strong class="text-white">Locally Owned</strong>
+              <span class="text-slate-300 block text-xs">Licensed & Insured WA Crew</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         3. THE PROBLEM (In His Words)
+    ====================================================================== -->
+    <section class="py-16 sm:py-20 bg-slate-50 border-b border-slate-200">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="text-center max-w-3xl mx-auto mb-10">
+          <span class="text-sm font-heading font-extrabold uppercase tracking-widest text-amber-700 block mb-2">
+            Sound Familiar?
+          </span>
+          <h2 class="font-heading font-black text-2xl sm:text-4xl text-slate-900 leading-tight">
+            You've Hung the Lights for 15 Years. You Don't Need to Be Up on That Ladder Anymore.
+          </h2>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 sm:p-10 shadow-md border border-slate-200 space-y-6 text-lg text-slate-700">
+          <p>
+            Every November, the plastic bins come down from the garage rafters. Half the strands you packed away working in January are mysteriously dead. So you spend Saturday afternoon in the cold Puget Sound drizzle, balancing on a wet extension ladder trying to clip plastic hooks onto second-story gutters.
+          </p>
+          <p>
+            Your back feels it the next morning. Your spouse stands in the driveway holding the ladder, saying, <em>"I really don't want you up there anymore."</em> And then in January, you have to climb right back up in the freezing cold to take it all down.
+          </p>
+          <p>
+            Or maybe you already gave up the ladder and paid a seasonal company <strong>$450 to $700</strong> to hang temporary lights—only to watch them come take the lights away six weeks later, knowing you'll have to write that exact same check again next fall.
+          </p>
+
+          <!-- CDC ER Fall Stat Callout -->
+          <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl text-slate-900 text-base sm:text-lg font-semibold flex items-start gap-4">
+            <svg class="w-7 h-7 text-amber-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+            <span>
+              According to the CDC, about 5,800 people every season end up in the emergency room from holiday decorating falls—and ladders are the #1 cause.
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         4. DAY VS. NIGHT SLIDER (Kills Objection #2: "Will it look tacky in daylight?")
+    ====================================================================== -->
+    <section class="py-16 sm:py-20 bg-white border-b border-slate-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center max-w-3xl mx-auto mb-10">
+          <span class="text-sm font-heading font-extrabold uppercase tracking-widest text-amber-700 block mb-2">
+            No Plastic Clips. No Hanging Wires.
+          </span>
+          <h2 class="font-heading font-black text-2xl sm:text-4xl text-slate-900 leading-tight">
+            Hidden in Your Trim by Day. Stunning at Night.
+          </h2>
+          <p class="mt-3 text-lg text-slate-600">
+            Drag the slider below on a real local install. During the day, our color-matched aluminum track blends right into your fascia and soffit.
+          </p>
+        </div>
+
+        <!-- Interactive Before/After Slider (Same Local House: IMG_2731 Day vs IMG_2732 Night) -->
+        <div class="max-w-4xl mx-auto">
+          <div 
+            id="day-night-slider" 
+            class="relative w-full aspect-[4/3] sm:aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl border border-slate-300 select-none bg-slate-900"
+          >
+            <!-- Night Image (Background Full Width) -->
+            <img 
+              src="/images/IMG_2732.jpg" 
+              alt="Local home at night with permanent warm white roofline lights turned on" 
+              class="absolute inset-0 w-full h-full object-cover pointer-events-none"
+            />
+            <span class="absolute top-4 right-4 z-10 bg-slate-950/85 text-amber-300 font-heading font-bold text-xs sm:text-sm uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-amber-400/40">
+              At Night (Lit Up)
+            </span>
+
+            <!-- Day Image (Clipped Foreground) -->
+            <div 
+              id="day-overlay" 
+              class="absolute inset-0 overflow-hidden"
+              style="clip-path: inset(0 50% 0 0);"
+            >
+              <img 
+                src="/images/IMG_2731.jpg" 
+                alt="Same local home during the day showing how the track blends into the white trim" 
+                class="absolute inset-0 w-full h-full object-cover pointer-events-none"
+              />
+              <span class="absolute top-4 left-4 z-10 bg-white/95 text-slate-900 font-heading font-bold text-xs sm:text-sm uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow border border-slate-300">
+                During the Day (Blends Into Trim)
+              </span>
+            </div>
+
+            <!-- Slider Divider Line & Handle -->
+            <div 
+              id="slider-line" 
+              class="absolute top-0 bottom-0 left-1/2 w-1 bg-amber-400 shadow-[0_0_12px_rgba(0,0,0,0.8)] pointer-events-none -translate-x-1/2"
+            >
+              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-amber-400 text-slate-950 shadow-xl border-2 border-white flex items-center justify-center">
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8 9l-4 3 4 3m8-6l4 3-4 3" />
+                </svg>
+              </div>
+            </div>
+
+            <!-- Range Input Covering Entire Box for Touch & Mouse Drag -->
+            <input 
+              type="range" 
+              id="slider-input" 
+              min="0" 
+              max="100" 
+              value="50" 
+              aria-label="Compare daytime and nighttime look"
+              class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20"
+            />
+          </div>
+
+          <p class="text-center font-heading font-bold text-base sm:text-lg text-slate-800 mt-4">
+            "During the day, it blends into your trim. At night, it's the best-looking house on the street."
+          </p>
+        </div>
+
+        <!-- Up-Close Daytime Track Proof Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mt-10">
+          <div class="bg-slate-50 rounded-xl p-4 border border-slate-200 flex flex-col sm:flex-row items-center gap-4">
+            <img 
+              src="/images/IMG_2753.jpg" 
+              alt="Close-up of powder-coated aluminum channel and sealed LED bulb" 
+              class="w-full sm:w-36 h-36 object-cover rounded-lg border border-slate-300 shrink-0"
+            />
+            <div>
+              <h3 class="font-heading font-extrabold text-lg text-slate-900">Color-Matched Aluminum Track</h3>
+              <p class="text-base text-slate-600 mt-1">
+                No exposed wires or sticky tape. Every bulb sits flush inside a rigid metal channel painted to match your home's soffit and fascia.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-slate-50 rounded-xl p-4 border border-slate-200 flex flex-col sm:flex-row items-center gap-4">
+            <img 
+              src="/images/IMG_3603.jpg" 
+              alt="Daytime view of two-story home during permanent track installation" 
+              class="w-full sm:w-36 h-36 object-cover rounded-lg border border-slate-300 shrink-0"
+            />
+            <div>
+              <h3 class="font-heading font-extrabold text-lg text-slate-900">Clean on Steep 2-Story Gables</h3>
+              <p class="text-base text-slate-600 mt-1">
+                Look at the white trim on this two-story local home in full daylight. The track tucks right behind the fascia lip so your HOA and neighbors only see clean lines.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         5. HOW IT WORKS (3 Simple Steps)
+    ====================================================================== -->
+    <section class="py-16 sm:py-20 bg-slate-900 text-white border-b border-slate-800">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <span class="text-sm font-heading font-extrabold uppercase tracking-widest text-amber-400 block mb-2">
+            Done In One Day
+          </span>
+          <h2 class="font-heading font-black text-2xl sm:text-4xl text-white leading-tight">
+            How It Works in 3 Simple Steps
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Step 1 -->
+          <div class="bg-slate-800/90 rounded-2xl p-7 border border-slate-700 space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-amber-400 text-slate-950 font-heading font-black text-xl flex items-center justify-center">
+              1
+            </div>
+            <h3 class="font-heading font-black text-xl text-white">
+              Free Quote (In Person or From Photos)
+            </h3>
+            <p class="text-slate-300 text-base leading-relaxed">
+              Give us a quick call or fill out the short form above. Our owner will reach out to get a quick photo of your roofline or stop by for 15 minutes, match your trim color, and give you an exact written price.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="bg-slate-800/90 rounded-2xl p-7 border border-slate-700 space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-amber-400 text-slate-950 font-heading font-black text-xl flex items-center justify-center">
+              2
+            </div>
+            <h3 class="font-heading font-black text-xl text-white">
+              One-Day Professional Install
+            </h3>
+            <p class="text-slate-300 text-base leading-relaxed">
+              Our licensed crew handles the two-story ladders and steep peaks. Most homes are finished in a single day with zero mess left in your yard or driveway.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="bg-slate-800/90 rounded-2xl p-7 border border-slate-700 space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-amber-400 text-slate-950 font-heading font-black text-xl flex items-center justify-center">
+              3
+            </div>
+            <h3 class="font-heading font-black text-xl text-white">
+              Control Every Holiday From Your Phone, Forever
+            </h3>
+            <p class="text-slate-300 text-base leading-relaxed">
+              Before we leave, we set up the app on your phone and walk you through it. Set an automatic sunset timer or switch to Christmas, game day, or warm white in two taps.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-10 text-center">
+          <a href="#top-quote" class="btn-amber inline-flex items-center gap-2 px-8 py-4 rounded-xl text-lg uppercase tracking-wide">
+            <span>Get My Free Quote</span>
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         6. YEAR-ROUND GALLERY (Every Holiday + Everyday Warm-White)
+    ====================================================================== -->
+    <section class="py-16 sm:py-20 bg-white border-b border-slate-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <span class="text-sm font-heading font-extrabold uppercase tracking-widest text-amber-700 block mb-2">
+            Every Holiday, Every Season
+          </span>
+          <h2 class="font-heading font-black text-2xl sm:text-4xl text-slate-900 leading-tight">
+            Put Them Up Once for Christmas. Use Them All 12 Months.
+          </h2>
+          <p class="mt-3 text-lg text-slate-600">
+            Most homeowners buy permanent lights to stay off the ladder in November—then end up running the warm-white mode every single night of the year.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {yearRoundModes.map((item) => (
+            <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col">
+              <div class="relative h-56 bg-slate-900">
+                <img 
+                  src={item.img} 
+                  alt={`${item.label} permanent lighting on a Seattle area home`} 
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <span class="absolute top-3 left-3 bg-slate-950/85 text-amber-300 text-xs font-heading font-bold uppercase tracking-wider px-3 py-1 rounded-full border border-amber-400/30">
+                  {item.occasion}
+                </span>
+              </div>
+              <div class="p-5 flex-1">
+                <h3 class="font-heading font-black text-xl text-slate-900">{item.label}</h3>
+                <p class="text-base text-slate-600 mt-1.5 leading-relaxed">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         7. THE MATH (Kills Objection #1: "That's too much for Christmas lights.")
+    ====================================================================== -->
+    <section class="py-16 sm:py-20 bg-slate-50 border-b border-slate-200">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <span class="text-sm font-heading font-extrabold uppercase tracking-widest text-amber-700 block mb-2">
+            Stop Renting Your Christmas Lights
+          </span>
+          <h2 class="font-heading font-black text-2xl sm:text-4xl text-slate-900 leading-tight">
+            The 10-Year Math: Paying Every Season vs. Owning Once
+          </h2>
+          <p class="mt-3 text-lg text-slate-600">
+            Hiring a seasonal installer costs $450 to $700 every winter—and in January, they take the lights with them. Here is how a one-time permanent install compares over 10 years.
+          </p>
+        </div>
+
+        <!-- 10-Year Comparison Table -->
+        <div class="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-x-auto">
+          <table class="w-full text-left border-collapse min-w-[640px]">
+            <thead>
+              <tr class="border-b-2 border-slate-200 text-sm font-heading uppercase">
+                <th class="p-4 sm:p-5 text-slate-500 font-extrabold w-1/4">What You Compare</th>
+                <th class="p-4 sm:p-5 text-slate-700 font-extrabold w-1/4 bg-slate-50">Hanging DIY Strings</th>
+                <th class="p-4 sm:p-5 text-slate-700 font-extrabold w-1/4">Seasonal Installer</th>
+                <th class="p-4 sm:p-5 bg-amber-50 text-slate-950 font-black w-1/4 border-x-2 border-t-2 border-amber-400">
+                  Seattle Permanent Lights
+                </th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200 text-base">
+              <tr>
+                <td class="p-4 sm:p-5 font-bold text-slate-900">Annual Cost</td>
+                <td class="p-4 sm:p-5 text-slate-600 bg-slate-50/60">$75–$150/yr replacing dead strands & clips</td>
+                <td class="p-4 sm:p-5 text-slate-600">$450 – $700 every single year</td>
+                <td class="p-4 sm:p-5 bg-amber-50/60 font-bold text-slate-900 border-x-2 border-amber-400">$0 after install</td>
+              </tr>
+              <tr>
+                <td class="p-4 sm:p-5 font-bold text-slate-900">10-Year Total</td>
+                <td class="p-4 sm:p-5 text-slate-600 bg-slate-50/60">$800+ and 120+ hours on a ladder</td>
+                <td class="p-4 sm:p-5 font-bold text-red-700">$4,500 – $7,000 (and you own nothing)</td>
+                <td class="p-4 sm:p-5 bg-amber-50/60 font-bold text-emerald-800 border-x-2 border-amber-400">
+                  One-time upgrade ({placeholders.typicalPriceRange})
+                </td>
+              </tr>
+              <tr>
+                <td class="p-4 sm:p-5 font-bold text-slate-900">Break-Even Point</td>
+                <td class="p-4 sm:p-5 text-slate-600 bg-slate-50/60">Never (you still climb every year)</td>
+                <td class="p-4 sm:p-5 text-slate-600">Never (rented every winter)</td>
+                <td class="p-4 sm:p-5 bg-amber-50/60 font-bold text-slate-900 border-x-2 border-amber-400">
+                  Pays for itself in ~4 to 5 seasons
+                </td>
+              </tr>
+              <tr>
+                <td class="p-4 sm:p-5 font-bold text-slate-900">Ladder Risk</td>
+                <td class="p-4 sm:p-5 text-red-700 font-semibold bg-slate-50/60">2 trips on the roof every winter</td>
+                <td class="p-4 sm:p-5 text-slate-600">None</td>
+                <td class="p-4 sm:p-5 bg-amber-50/60 font-bold text-emerald-800 border-x-2 border-amber-400">
+                  Zero ladder trips, ever again
+                </td>
+              </tr>
+              <tr>
+                <td class="p-4 sm:p-5 font-bold text-slate-900">When You Use It</td>
+                <td class="p-4 sm:p-5 text-slate-600 bg-slate-50/60">5 weeks a year</td>
+                <td class="p-4 sm:p-5 text-slate-600">5 weeks a year</td>
+                <td class="p-4 sm:p-5 bg-amber-50/60 font-bold text-slate-900 border-x-2 border-b-2 border-amber-400">
+                  All 365 nights (Warm white + every holiday)
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Transparent Pricing & Financing Callout -->
+        <div class="mt-6 bg-white rounded-xl p-6 border border-slate-200 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="space-y-1 text-center sm:text-left">
+            <p class="font-heading font-extrabold text-lg text-slate-900">
+              Typical Home Range: <span class="text-amber-700">{placeholders.typicalPriceRange}</span> installed
+            </p>
+            <p class="text-base text-slate-600">
+              Depends on roofline footage and stories. Flexible monthly options available from <strong>{placeholders.monthlyFinancing}/month</strong>.
+            </p>
+          </div>
+          <a href="#top-quote" class="btn-amber px-6 py-3.5 rounded-xl text-base uppercase tracking-wide shrink-0">
+            Get My Exact Price
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         8. US VS. DIY KITS (Kills Objection #4: "Why not just buy a Govee/Costco kit?")
+    ====================================================================== -->
+    <section class="py-16 sm:py-20 bg-white border-b border-slate-200">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <span class="text-sm font-heading font-extrabold uppercase tracking-widest text-amber-700 block mb-2">
+            Honest Side-By-Side
+          </span>
+          <h2 class="font-heading font-black text-2xl sm:text-4xl text-slate-900 leading-tight">
+            "Why Not Just Buy a $300 Govee or Costco Kit?"
+          </h2>
+          <p class="mt-3 text-lg text-slate-600">
+            DIY stick-on kits are great for a back patio or a single-story garage. Here is what you are actually paying us for on your home's roofline:
+          </p>
+        </div>
+
+        <div class="bg-slate-50 rounded-2xl border border-slate-200 overflow-x-auto shadow-sm">
+          <table class="w-full text-left border-collapse min-w-[600px]">
+            <thead>
+              <tr class="bg-slate-900 text-white text-sm font-heading uppercase">
+                <th class="p-4 sm:p-5 w-1/3">What Matters on Your House</th>
+                <th class="p-4 sm:p-5 w-1/3 text-slate-300">Box-Store DIY Kits (Govee / Costco)</th>
+                <th class="p-4 sm:p-5 w-1/3 text-amber-400">Our Custom Track Install</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200 text-base bg-white">
+              <tr>
+                <td class="p-4 sm:p-5 font-bold text-slate-900">How It Attaches</td>
+                <td class="p-4 sm:p-5 text-slate-600">Foam 3M sticky tape that peels off in wet Puget Sound winters</td>
+                <td class="p-4 sm:p-5 font-semibold text-slate-900">Rigid powder-coated aluminum track mechanically fastened to trim</td>
+              </tr>
+              <tr>
+                <td class="p-4 sm:p-5 font-bold text-slate-900">Daytime Look</td>
+                <td class="p-4 sm:p-5 text-slate-600">Exposed white cord looped between every single bulb</td>
+                <td class="p-4 sm:p-5 font-semibold text-slate-900">All wiring concealed inside a track matched to your paint color</td>
+              </tr>
+              <tr>
+                <td class="p-4 sm:p-5 font-bold text-slate-900">2nd-Story & Steep Peaks</td>
+                <td class="p-4 sm:p-5 text-slate-600">You still have to rent a 28-foot ladder and climb up there yourself</td>
+                <td class="p-4 sm:p-5 font-semibold text-slate-900">Installed by our licensed, insured two-story roof crew</td>
+              </tr>
+              <tr>
+                <td class="p-4 sm:p-5 font-bold text-slate-900">Splicing & Jumps</td>
+                <td class="p-4 sm:p-5 text-slate-600">Fixed 16ft strand lengths; awkward wires hanging across dormers</td>
+                <td class="p-4 sm:p-5 font-semibold text-slate-900">Custom-cut to the inch with hidden attic and soffit wire jumps</td>
+              </tr>
+              <tr>
+                <td class="p-4 sm:p-5 font-bold text-slate-900">If Something Fails in Year 3</td>
+                <td class="p-4 sm:p-5 text-slate-600">You climb back up on the roof to troubleshoot or peel the strip down</td>
+                <td class="p-4 sm:p-5 font-semibold text-slate-900">You call {phoneDisplay} and our local tech comes out to fix it</td>
+              </tr>
+              <tr>
+                <td class="p-4 sm:p-5 font-bold text-slate-900">HOA Approval</td>
+                <td class="p-4 sm:p-5 text-slate-600">Often rejected due to visible cords and hanging power bricks</td>
+                <td class="p-4 sm:p-5 font-semibold text-slate-900">We prepare your HOA packet and match your exact trim color</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         9. WARRANTY & "WE ANSWER THE PHONE" SERVICE PROMISE (Kills Objection #3)
+    ====================================================================== -->
+    <section class="py-16 sm:py-20 bg-slate-900 text-white border-b border-slate-800">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          <!-- Left: Real Crew Photo on a Local Roof -->
+          <div class="lg:col-span-5">
+            <div class="bg-slate-800 p-3 rounded-2xl border border-slate-700 shadow-2xl">
+              <img 
+                src="/images/IMG_7138.jpg" 
+                alt="Seattle Permanent Holiday Lights local crew installing color-matched track on a roof peak" 
+                class="w-full h-80 sm:h-96 object-cover rounded-xl"
+              />
+              <div class="p-3 text-center">
+                <p class="font-heading font-bold text-sm text-amber-400 uppercase tracking-wider">
+                  {placeholders.ownerName} · Local WA Crew (No Subcontractors)
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Plain-Language Warranty & Callback Promise -->
+          <div class="lg:col-span-7 space-y-6">
+            <span class="text-sm font-heading font-extrabold uppercase tracking-widest text-amber-400 block">
+              Our "We Answer the Phone" Promise
+            </span>
+            <h2 class="font-heading font-black text-2xl sm:text-4xl text-white leading-tight">
+              What Happens If a Light Goes Out Two Winters From Now?
+            </h2>
+            <p class="text-lg text-slate-300 leading-relaxed">
+              The biggest fear homeowners have with permanent lights isn't the lights—it's paying thousands of dollars to a pop-up company that disappears next year.
+            </p>
+            <p class="text-lg text-slate-300 leading-relaxed">
+              We live and work right here in Snohomish and King County. When you call <strong>{phoneDisplay}</strong>, you get our local team—not an out-of-state call center.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              <div class="bg-slate-800/90 p-5 rounded-xl border border-slate-700">
+                <h3 class="font-heading font-black text-lg text-amber-400">
+                  {placeholders.productWarranty} Product Warranty
+                </h3>
+                <p class="text-base text-slate-300 mt-1">
+                  Every bulb, track section, and waterproof power supply is covered against failure in Pacific Northwest rain and freezes.
+                </p>
+              </div>
+
+              <div class="bg-slate-800/90 p-5 rounded-xl border border-slate-700">
+                <h3 class="font-heading font-black text-lg text-amber-400">
+                  {placeholders.laborWarranty} Local Labor Guarantee
+                </h3>
+                <p class="text-base text-slate-300 mt-1">
+                  If anything needs service, we don't mail you a part and tell you to grab a ladder. Our truck comes out and fixes it.
+                </p>
+              </div>
+            </div>
+
+            <div class="bg-slate-800/60 border border-slate-700 rounded-xl p-4 flex flex-wrap items-center justify-between gap-4 text-sm text-slate-300">
+              <span><strong>Callback Promise:</strong> We return all service calls within {placeholders.responseTimeHours} hours.</span>
+              <span><strong>Licensed & Insured:</strong> {placeholders.licenseNumber}</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         10. REVIEWS (Prioritizing Daytime Look, Crew Cleanliness & "Wish We Did It Sooner")
+    ====================================================================== -->
+    <section class="py-16 sm:py-20 bg-slate-50 border-b border-slate-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <span class="text-sm font-heading font-extrabold uppercase tracking-widest text-amber-700 block mb-2">
+            What Your Neighbors Say
+          </span>
+          <h2 class="font-heading font-black text-2xl sm:text-4xl text-slate-900 leading-tight">
+            "I Wish We Had Done This Five Years Ago."
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {reviews.map((rev) => (
+            <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm flex flex-col justify-between space-y-5">
+              <div class="space-y-4">
+                <div class="flex items-center justify-between">
+                  <div class="flex text-amber-500">
+                    {Array.from({ length: 5 }).map(() => (
+                      <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    ))}
+                  </div>
+                  <span class="text-xs font-heading font-bold uppercase tracking-wider bg-slate-100 text-slate-700 px-2.5 py-1 rounded">
+                    {rev.highlight}
+                  </span>
+                </div>
+
+                <p class="text-lg text-slate-700 leading-relaxed">
+                  "{rev.quote}"
+                </p>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-base">
+                <strong class="font-heading text-slate-900">{rev.author}</strong>
+                <span class="text-slate-500 text-sm font-semibold">{rev.location} · Verified Homeowner</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         11. FAQ ACCORDION (All 8 Buyer Objections Answered Directly)
+    ====================================================================== -->
+    <section class="py-16 sm:py-20 bg-white border-b border-slate-200">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-12">
+          <span class="text-sm font-heading font-extrabold uppercase tracking-widest text-amber-700 block mb-2">
+            Straight Answers
+          </span>
+          <h2 class="font-heading font-black text-2xl sm:text-4xl text-slate-900 leading-tight">
+            Frequently Asked Questions
+          </h2>
+        </div>
+
+        <div class="space-y-4">
+          {faqs.map((item, index) => (
+            <details 
+              class="group bg-slate-50 rounded-xl border border-slate-200 overflow-hidden transition-all"
+              open={index === 0}
+            >
+              <summary class="flex items-center justify-between gap-4 p-5 sm:p-6 cursor-pointer list-none font-heading font-extrabold text-lg sm:text-xl text-slate-900 hover:text-amber-700">
+                <span>{item.q}</span>
+                <span class="w-8 h-8 rounded-lg bg-white border border-slate-300 flex items-center justify-center text-slate-700 shrink-0 transition-transform group-open:rotate-180">
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </span>
+              </summary>
+              <div class="px-5 sm:px-6 pb-6 pt-1 text-lg text-slate-700 leading-relaxed border-t border-slate-200/70">
+                {item.a}
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         12. URGENCY + FINAL CTA (Repeat Short Form + Click-to-Call)
+    ====================================================================== -->
+    <section class="py-16 sm:py-20 bg-[#071324] text-white relative overflow-hidden">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          <!-- Left: Urgency & Direct Phone Option -->
+          <div class="lg:col-span-6 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/20 border border-amber-400/50 text-amber-300 text-sm font-bold">
+              <svg class="w-4 h-4 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>Pre-Holiday Schedule Update</span>
+            </div>
+
+            <h2 class="font-heading font-black text-3xl sm:text-4xl text-white leading-tight">
+              Christmas Install Dates Fill Up by {placeholders.cutoffDate}. Lock In Your Spot.
+            </h2>
+
+            <p class="text-lg text-slate-300 leading-relaxed">
+              Because our crew custom-fits every home in a single day without cutting corners, we can only take a set number of homes before December. Request your free quote today to see our next open install dates.
+            </p>
+
+            <div class="bg-slate-900/90 border border-slate-700 rounded-xl p-5 space-y-3">
+              <p class="text-sm uppercase tracking-wider font-heading font-bold text-amber-400">
+                Prefer to talk to a person right now?
+              </p>
+              <a href={phoneHref} class="inline-flex items-center gap-3 text-2xl sm:text-3xl font-heading font-black text-white hover:text-amber-400 transition-colors">
+                <svg class="w-7 h-7 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                <span>{phoneDisplay}</span>
+              </a>
+              <p class="text-sm text-slate-400">
+                Monday – Saturday, 7:00 AM – 7:00 PM · Local Seattle & Snohomish County Estimators
+              </p>
+            </div>
+          </div>
+
+          <!-- Right: Repeated Short Quote Form -->
+          <div class="lg:col-span-6">
+            <div class="bg-white text-slate-900 rounded-2xl p-6 sm:p-8 shadow-2xl border-2 border-amber-400/80">
+              <h3 class="font-heading font-black text-2xl text-slate-900 mb-1">
+                Get My Free Quote
+              </h3>
+              <p class="text-base text-slate-600 mb-5">
+                Takes 30 seconds. Our owner will call or text you with an honest price range for your home.
+              </p>
+
+              <form 
+                class="lead-quote-form space-y-4"
+              >
+                <div>
+                  <label for="bottom-name" class="block text-sm font-bold text-slate-800 mb-1">Your Name *</label>
+                  <input 
+                    type="text" 
+                    id="bottom-name" 
+                    name="name" 
+                    required 
+                    placeholder="First and last name"
+                    class="w-full px-4 py-3 rounded-lg border border-slate-300 text-slate-900 text-base focus:border-amber-500 focus:outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label for="bottom-phone" class="block text-sm font-bold text-slate-800 mb-1">Phone Number *</label>
+                  <input 
+                    type="tel" 
+                    id="bottom-phone" 
+                    name="phone" 
+                    required 
+                    placeholder="(425) 599-6702"
+                    class="w-full px-4 py-3 rounded-lg border border-slate-300 text-slate-900 text-base focus:border-amber-500 focus:outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label for="bottom-city" class="block text-sm font-bold text-slate-800 mb-1">City *</label>
+                  <input 
+                    type="text" 
+                    id="bottom-city" 
+                    name="city" 
+                    required 
+                    placeholder="e.g. Mill Creek, Bothell, Seattle"
+                    class="w-full px-4 py-3 rounded-lg border border-slate-300 text-slate-900 text-base focus:border-amber-500 focus:outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label for="bottom-size" class="block text-sm font-bold text-slate-800 mb-1">Approx. Home Size *</label>
+                  <select 
+                    id="bottom-size" 
+                    name="home_size"
+                    required
+                    class="w-full px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-900 text-base focus:border-amber-500 focus:outline-none"
+                  >
+                    <option value="">Select stories / size...</option>
+                    <option value="1-story">1-Story Home (Rambler)</option>
+                    <option value="2-story">2-Story Home</option>
+                    <option value="2-story-steep">2-Story with Steep Peaks / Walkout</option>
+                    <option value="3-story">3-Story Home</option>
+                  </select>
+                </div>
+
+                <button 
+                  type="submit" 
+                  class="btn-amber w-full py-4 px-6 rounded-xl text-lg uppercase tracking-wide cursor-pointer flex items-center justify-center gap-2"
+                >
+                  <span>Get My Free Quote</span>
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         13. FOOTER: Minimal Compliance Footer (No Outbound Distraction Links)
+    ====================================================================== -->
+    <footer class="bg-slate-950 text-slate-400 py-10 border-t border-slate-800 text-sm">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+        <div class="space-y-1">
+          <p class="font-heading font-bold text-white uppercase tracking-wide">
+            {companyName} LLC
+          </p>
+          <p>
+            {placeholders.streetAddress} · <a href={phoneHref} class="text-amber-400 hover:underline font-bold">{phoneDisplay}</a> · {placeholders.licenseNumber}
+          </p>
+          <p class="text-xs text-slate-500">
+            Serving Seattle, Mill Creek, Bothell, Woodinville, Kirkland, Bellevue, Everett, Edmonds, Lynnwood, Marysville, Snohomish & Arlington.
+          </p>
+        </div>
+
+        <div class="text-xs text-slate-500 space-x-4 shrink-0">
+          <span>© {new Date().getFullYear()} {companyName}</span>
+          <a href="#privacy" onclick="event.preventDefault(); alert('Privacy Policy: Your contact information is used solely to provide your lighting estimate and is never sold or shared with third parties.');" class="hover:text-slate-300 underline">
+            Privacy Policy
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- =====================================================================
+         MOBILE STICKY CLICK-TO-CALL + QUOTE BAR
+    ====================================================================== -->
+    <div class="fixed bottom-0 inset-x-0 z-50 md:hidden bg-[#071324] border-t border-slate-700 p-2.5 shadow-2xl grid grid-cols-2 gap-2.5">
+      <a 
+        href={phoneHref}
+        class="flex items-center justify-center gap-2 py-3 px-3 rounded-lg bg-slate-800 text-white font-heading font-extrabold text-sm uppercase border border-slate-600"
+      >
+        <svg class="w-4 h-4 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+        </svg>
+        <span>Call Now</span>
+      </a>
+      <a 
+        href="#top-quote"
+        class="btn-amber flex items-center justify-center py-3 px-3 rounded-lg text-sm uppercase tracking-wide"
+      >
+        Get Free Quote
+      </a>
+    </div>
+
+    <!-- Interactive Day vs. Night Slider & Lead Webhook Submission Script -->
+    <script is:inline>
+      (function() {
+        var input = document.getElementById('slider-input');
+        var overlay = document.getElementById('day-overlay');
+        var line = document.getElementById('slider-line');
+        if (input && overlay && line) {
+          input.addEventListener('input', function(e) {
+            var val = e.target.value;
+            overlay.style.clipPath = 'inset(0 ' + (100 - val) + '% 0 0)';
+            line.style.left = val + '%';
+          });
+        }
+
+        var WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/TgmskugdRQEpf4Ul8YFr/webhook-trigger/be17e74b-c14a-4154-aad7-c290d27c9352';
+        var forms = document.querySelectorAll('.lead-quote-form');
+        var urlParams = new URLSearchParams(window.location.search);
+
+        forms.forEach(function(form) {
+          form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            var submitBtn = form.querySelector('button[type="submit"]');
+            if (submitBtn) {
+              submitBtn.disabled = true;
+              submitBtn.innerHTML = '<span>Sending Request...</span>';
+            }
+
+            var formData = new FormData(form);
+            var fullName = (formData.get('name') || '').toString().trim();
+            var nameParts = fullName.split(/\s+/);
+            var firstName = nameParts[0] || '';
+            var lastName = nameParts.slice(1).join(' ') || '';
+
+            var payload = {
+              name: fullName,
+              first_name: firstName,
+              last_name: lastName,
+              phone: (formData.get('phone') || '').toString().trim(),
+              city: (formData.get('city') || '').toString().trim(),
+              home_size: (formData.get('home_size') || '').toString().trim(),
+              source: 'Google Ads Landing Page (/lp)',
+              page_url: window.location.href,
+              utm_source: urlParams.get('utm_source') || '',
+              utm_medium: urlParams.get('utm_medium') || '',
+              utm_campaign: urlParams.get('utm_campaign') || '',
+              utm_term: urlParams.get('utm_term') || '',
+              utm_content: urlParams.get('utm_content') || '',
+              gclid: urlParams.get('gclid') || '',
+              submitted_at: new Date().toISOString()
+            };
+
+            fetch(WEBHOOK_URL, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(payload),
+              keepalive: true
+            })
+              .catch(function() {
+                // Fallback to URLSearchParams simple request if JSON preflight is blocked by a browser extension
+                try {
+                  var formParams = new URLSearchParams();
+                  Object.keys(payload).forEach(function(k) {
+                    formParams.append(k, payload[k]);
+                  });
+                  if (navigator.sendBeacon) {
+                    navigator.sendBeacon(WEBHOOK_URL, formParams);
+                  }
+                } catch (err) {}
+              })
+              .finally(function() {
+                var redirectUrl = '/thank-you';
+                if (firstName) {
+                  redirectUrl += '?name=' + encodeURIComponent(firstName);
+                }
+                window.location.href = redirectUrl;
+              });
+          });
+        });
+      })();
+    </script>
+
+  </body>
+</html>

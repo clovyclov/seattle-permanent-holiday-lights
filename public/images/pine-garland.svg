@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 80" width="100%" height="80" preserveAspectRatio="none">
+  <defs>
+    <filter id="garland-shadow" x="-5%" y="-5%" width="110%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="3" flood-opacity="0.3" />
+    </filter>
+  </defs>
+  <g filter="url(#garland-shadow)">
+    <!-- Garland pine branches -->
+    <path d="M 0,0 Q 150,45 300,10 Q 450,45 600,0" fill="none" stroke="#1b4d24" stroke-width="8" stroke-linecap="round" />
+    <path d="M 20,5 Q 160,50 310,15 Q 460,50 580,5" fill="none" stroke="#256b33" stroke-width="5" stroke-linecap="round" />
+    
+    <!-- Left Cluster -->
+    <path d="M 40,10 L 25,35 M 45,15 L 35,42 M 50,18 L 48,45 M 55,20 L 65,42 M 60,18 L 75,38" stroke="#1f5d2b" stroke-width="3" stroke-linecap="round" />
+    <path d="M 90,20 L 75,45 M 95,25 L 88,52 M 105,28 L 108,55 M 115,28 L 125,50 M 120,25 L 135,44" stroke="#2b7a3a" stroke-width="3" stroke-linecap="round" />
+    <path d="M 150,28 L 135,55 M 160,32 L 155,62 M 170,35 L 175,65 M 180,32 L 195,58 M 190,28 L 205,50" stroke="#1b4d24" stroke-width="3.5" stroke-linecap="round" />
+    <path d="M 220,28 L 205,56 M 230,30 L 228,62 M 240,30 L 248,60 M 250,26 L 265,52" stroke="#256b33" stroke-width="3" stroke-linecap="round" />
+
+    <!-- Center Cluster -->
+    <path d="M 280,18 L 268,48 M 290,20 L 285,55 M 300,20 L 302,58 M 310,20 L 318,54 M 320,18 L 332,46" stroke="#194320" stroke-width="3.5" stroke-linecap="round" />
+    <path d="M 350,25 L 338,55 M 360,28 L 358,62 M 370,30 L 375,62 M 380,28 L 392,54" stroke="#256b33" stroke-width="3" stroke-linecap="round" />
+
+    <!-- Right Cluster -->
+    <path d="M 410,32 L 398,60 M 420,32 L 420,65 M 430,30 L 438,62 M 440,26 L 455,54" stroke="#1f5d2b" stroke-width="3.5" stroke-linecap="round" />
+    <path d="M 470,25 L 458,52 M 480,24 L 480,55 M 490,22 L 500,50 M 500,18 L 515,44" stroke="#2b7a3a" stroke-width="3" stroke-linecap="round" />
+    <path d="M 530,16 L 518,42 M 540,14 L 542,46 M 550,12 L 560,40 M 560,8 L 575,32" stroke="#1b4d24" stroke-width="3" stroke-linecap="round" />
+
+    <!-- Red Holly Berries clusters -->
+    <!-- Left berry cluster -->
+    <circle cx="50" cy="22" r="5" fill="#cc1111" />
+    <circle cx="58" cy="24" r="5" fill="#e61c1c" />
+    <circle cx="53" cy="29" r="4.5" fill="#b00c0c" />
+    <circle cx="56" cy="23" r="1.5" fill="#ffffff" opacity="0.7" />
+
+    <!-- Mid-left berry cluster -->
+    <circle cx="165" cy="36" r="5.5" fill="#cc1111" />
+    <circle cx="174" cy="38" r="5" fill="#e61c1c" />
+    <circle cx="168" cy="44" r="5" fill="#b00c0c" />
+    <circle cx="172" cy="37" r="1.5" fill="#ffffff" opacity="0.7" />
+
+    <!-- Center berry cluster -->
+    <circle cx="295" cy="22" r="6" fill="#cc1111" />
+    <circle cx="306" cy="24" r="5.5" fill="#e61c1c" />
+    <circle cx="300" cy="31" r="5" fill="#b00c0c" />
+    <circle cx="304" cy="23" r="1.8" fill="#ffffff" opacity="0.7" />
+
+    <!-- Mid-right berry cluster -->
+    <circle cx="425" cy="35" r="5.5" fill="#cc1111" />
+    <circle cx="434" cy="37" r="5" fill="#e61c1c" />
+    <circle cx="428" cy="43" r="5" fill="#b00c0c" />
+    <circle cx="432" cy="36" r="1.5" fill="#ffffff" opacity="0.7" />
+
+    <!-- Right berry cluster -->
+    <circle cx="545" cy="18" r="5" fill="#cc1111" />
+    <circle cx="553" cy="20" r="5" fill="#e61c1c" />
+    <circle cx="548" cy="26" r="4.5" fill="#b00c0c" />
+    <circle cx="551" cy="19" r="1.5" fill="#ffffff" opacity="0.7" />
+
+    <!-- Pine cones -->
+    <ellipse cx="110" cy="34" rx="7" ry="11" fill="#5c3818" transform="rotate(-15 110 34)" />
+    <ellipse cx="365" cy="35" rx="7" ry="11" fill="#5c3818" transform="rotate(15 365 35)" />
+    <ellipse cx="485" cy="28" rx="6" ry="10" fill="#5c3818" transform="rotate(-10 485 28)" />
+  </g>
+</svg>

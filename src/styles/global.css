@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  body {
+    background-color: #ffffff;
+    color: #4b4f58;
+    line-height: 1.65;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+/* Inspiration exact color classes */
+.bg-navy-main {
+  background-color: #002b47;
+}
+
+.bg-navy-dark {
+  background-color: #001f35;
+}
+
+.text-navy-main {
+  color: #002b47;
+}
+
+.bg-red-accent {
+  background-color: #cc181e;
+}
+
+.text-red-accent {
+  color: #cc181e;
+}
+
+.bg-section-offwhite {
+  background-color: #f9f6f7;
+}
+
+/* Primary Inspiration Button */
+.btn-fast-quote {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  background-color: #cc181e;
+  color: #ffffff;
+  padding: 12px 28px;
+  border-radius: 3px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 14px rgba(204, 24, 30, 0.4);
+  transition: all 0.2s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.btn-fast-quote:hover {
+  background-color: #b31419;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(204, 24, 30, 0.5);
+}
+
+.btn-fast-quote:active {
+  transform: translateY(0);
+}
